@@ -4,7 +4,8 @@
 
 CLF Healthscore Tool
 ============
-Author: *Chris Stolte <chris@deepgreensoft.com>*
+Current Developer: *Tyler Richman <tyler.richman@erg.com>*
+Original Developer: *Chris Stolte <chris@deepgreensoft.com>*
 
 
 Background
