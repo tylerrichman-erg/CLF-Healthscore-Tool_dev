@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Settings Tray
+   ========================================================================== */
+
+$settings-tray-padding-side: rem(40);
+
+.settings-tray {
+  width: rem(100);
+  height: calc(100vh - 80px);
+  overflow-y: scroll;
+
+  &[open] {
+    width: 80vw;
+    max-width: rem(420);
+
+    .settings-tray__toggle {
+      padding: rem(20) $settings-tray-padding-side;
+      text-align: left;
+      font-size: rem(19);
+      background-image: image('icon--tray-collapse.svg');
+      background-position: right rem(20) top 50%;
+    }
+  }
+
+  &__toggle {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    margin-bottom: -1px;
+    padding: rem(60) rem(10) rem(20);
+    cursor: pointer;
+    text-align: center;
+    background-color: $white;
+    border-bottom: 1px solid $color-border;
+    color: $gray-primary;
+    font-size: rem(16);
+    line-height: calc(20/19);
+    background-position: 50% rem(20);
+    background-image: image('icon--tray-expand.svg');
+    background-repeat: no-repeat;
+  }
+
+  &__section {
+    @include remove-child-margins;
+    border-top: 1px solid $color-border;
+    padding: rem(20) $settings-tray-padding-side;
+  }
+
+}

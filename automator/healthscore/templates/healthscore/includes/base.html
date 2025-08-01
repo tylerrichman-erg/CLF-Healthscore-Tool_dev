@@ -1,0 +1,64 @@
+<!doctype html>
+{% load static %}
+<html class="no-js" lang="en">
+<head>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta charset="utf-8">
+    <title>{% block title %}CLF Healthscore{% endblock %}</title>
+    {% block preconnect %} {% endblock %}
+    <link rel="preload" href="{% static 'healthscore/fonts/Roboto-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'healthscore/fonts/Roboto-Bold.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'healthscore/css/styles.css' %}">
+    <meta property="og:type" content="website" />
+    <meta name="description" content="" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Home" />
+    <meta property="og:url" content="https://www.clf.org/" />
+    <meta property="og:site_name" content="Conservation Law Foundation" />
+    <meta property="article:publisher" content="https://www.facebook.com/theclf" />
+    <meta property="og:image" content="https://www.clf.org/wp-content/uploads/2021/04/New-England_PhotoFill_HNEF-757x1024.png" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:site" content="@clf" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'healthscore/apple-touch-icon.png' %} ">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'healthscore/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'healthscore/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'healthscore/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'healthscore/safari-pinned-tab.svg' %}" color="#960f33">
+    <meta name="msapplication-TileColor" content="#960f33">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<header class="region-header">
+  <div class="site-name"><a class="site-name__link" href="/"><img src="{% static 'healthscore/images/clf-logo.svg' %}" alt="Conservation Law Foundation" width='167' height='49' /></a></div>
+  <button id="navigation-toggle" class="navigation-toggle" aria-controls="navigation">Menu</button>
+  <nav id="navigation" class="primary-navigation">
+    {% with request.resolver_match.url_name as url_name %}
+    <ul class="menu menu--main">
+      {% if user.is_authenticated %}
+        <li class="menu__item"><a class="menu__link {% if url_name == 'index' %}active{% endif %}" href="/">Start a New Scorecard</a></li>
+        <li class="menu__item"><a class="menu__link {% if url_name == 'saved' %}active{% endif %}" href="/saved">My Scorecards</a></li>
+        <li class="menu__item"><a class="menu__link {% if url_name == 'about' %}active{% endif %}" href="/about">About</a></li>
+        <li class="menu__item"><a class="menu__link menu__link--action" href="/accounts/logout">Logout</a></li>
+      {% else %}
+        <li class="menu__item menu__item--login"><a class="menu__link menu__link--action" href="/accounts/login">Login</a></li>
+      {% endif %}
+    </ul>
+    {% endwith %} 
+  </nav>
+</header>
+<main class="region-main">
+{% block content %} {% endblock %}
+</main>
+<footer class="region-footer">
+  <div class="region-footer-inner">
+    {% block footer %} 
+
+    {% endblock %}
+  </div>
+</footer>
+<script src="{% static 'healthscore/js/nav-toggle.min.js' %}"></script>
+{% block pageBottom %} 
+{% endblock %}
+</body>
+</html>

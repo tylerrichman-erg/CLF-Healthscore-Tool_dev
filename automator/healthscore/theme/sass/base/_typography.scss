@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+
+/**
+ * Root html element
+ * (set defaults for root font size and line height)
+ */
+html {
+  font-family: $font-family-default; 
+  font-size: 100% * calc($base-font-size-value / 16); 
+  line-height: $base-line-height-ratio;
+}
+
+/**
+ * Headers
+ */
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+/**
+ * Paragraph
+ */
+
+p {
+  margin: 1em 0;
+}
+
+/**
+ * Lists
+ */
+
+ul {
+  padding: 0 0 0 1em;
+  margin: 1em 0;
+}
+
+ol {
+  padding: 0 0 0 1em;
+  margin: 1em 0;
+}
+
+/**
+ * Quotes
+ */
+
+blockquote {
+  margin: 0 0 1.5em;
+}
+
+/**
+ * Alignment
+ */
+
+.text-align-left {
+  text-align: left;
+}
+.text-align-right {
+  text-align: right;
+}
+.text-align-center {
+  text-align: center;
+}
+// .text-align-justify {
+//   text-align: justify;
+// }
+
+/**
+ * Horizontal rule
+ */
+hr {
+  margin-block: rem(30);
+  height: 0;
+  border-top: 1px solid lighten($color-border, 10%);
+}

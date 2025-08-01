@@ -1,0 +1,34 @@
+// ==========================================================================
+// $FONT-FACE
+// ==========================================================================
+
+@if variable-exists(google-fonts-url) {
+  @import url($google-fonts-url);
+}
+
+/**
+ * Font Face generator
+ * @param {string} $fontname - name of font family
+ * @param {string} $filename - name of font file without file type within 'fonts' directory
+ * @example scss
+ * @include font-face('Oswald', 'oswald-regular-webfont');
+ * @include font-face('Lato', 'lato-italic-webfont', normal, italic);
+ */
+@mixin font-face($fontname, $filename: $fontname, $weight: normal, $style: normal) {
+    // based on font squirrel output, without SVG (too legacy)
+    @font-face {
+        font-family: $fontname;
+        src: font('#{$filename}.woff2') format('woff2');
+        font-weight: $weight;
+        font-style: $style;
+        font-display: swap;
+    }
+}
+
+// FONTS
+// example @include font-face('Oswald', 'oswald-light-webfont', 300);
+
+@include font-face('Roboto', 'Roboto-Regular', 400);
+@include font-face('Roboto', 'Roboto-Italic', 400, italic);
+@include font-face('Roboto', 'Roboto-Bold', 700);
+@include font-face('Roboto', 'Roboto-BoldItalic', 700, italic);

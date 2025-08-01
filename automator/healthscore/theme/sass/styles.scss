@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+// SMACSS Your Sass Up by Mina Markham
+// A SMACSS-based starter toolkit for SCSS projects
+//
+// The toolkit uses recommendations from and Scalable and Modular Architecture for CSS (SMACSS) http://smacss.com/book
+// A SMACSS-based starter toolkit for SCSS projects
+// Adapted from Sassy Starter from Mina Markham: https://github.com/minamarkham/sassy-starter
+
+// Contents:
+
+// 01. Utilities ( COMPASS, Variables, Functions, Mixins, etc... )
+// 02. Libraries
+// 03. Base ( regular elements )
+// 04. Layout ( layout template, grid structure )
+// 05. Modules ( modules, background, colors, typography.. )
+// 06. States
+// 07. @font-face
+// 08. Print
+
+// ==========================================================================
+// $Utilities
+// ==========================================================================
+@import "utilities/index"; // Variables, mixins, grid-system, etc.
+
+// ==========================================================================
+// $Lib
+// import third-party dependancies
+// ==========================================================================
+@import 'utilities/lib';
+
+// ==========================================================================
+// $Base
+// ==========================================================================
+@import 'base/index';
+
+// ==========================================================================
+// $Layout
+// ==========================================================================
+@import 'layout/index';
+
+// ==========================================================================
+// $Modules
+// ==========================================================================
+@import 'modules/index';
+
+// ==========================================================================
+// $States
+// ==========================================================================
+@import 'states/index';
+
+// ==========================================================================
+// $@font-face
+// ==========================================================================
+@import 'utilities/fonts';
+
+// ==========================================================================
+// $Print
+// ==========================================================================
+@import 'states/print';

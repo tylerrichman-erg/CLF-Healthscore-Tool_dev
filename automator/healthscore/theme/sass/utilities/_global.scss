@@ -1,0 +1,191 @@
+// ==========================================================================
+// = Global Variables
+// ==========================================================================
+
+/**
+ * Breakpoint
+ * @link https://github.com/at-import/breakpoint
+ */
+@import '../node_modules/breakpoint-sass/stylesheets/breakpoint';
+
+/**
+ * CSS layout debugging
+ * @link http://pesticide.io/
+ * @type boolean
+ */
+
+$pesticide-debug              : false;
+
+
+// Color Scheme
+// =============
+
+// Descriptive colors:
+$white                        : #fff;
+$black                        : #000;
+$gray-charcoal                : #333132;
+$gray-light-warm              : #f2f0f1;
+$gray-light-cool              : #f5f7f7;
+$red-primary                  : #960f33;
+$gray-primary                 : #696A6C;
+$yellow                       : #eac87d;
+$red-brick                    : #b74c34;
+$blue                         : #058095;
+$green                        : #afaf2b;
+
+// Common colors
+$color-background             : $white;
+$color-background-shade       : $white;
+$color-border                 : $gray-light-warm;
+$color-text                   : $gray-charcoal;
+$color-text-light             : lighten($color-text, 20%);
+$color-accent                 : $red-primary;
+
+// Links
+$color-link                   : $red-primary ;
+$color-link-hover             : $red-primary ;
+$color-link-visited           : $red-primary ;
+
+// Selections
+$color-selection              : #b3d4fc;
+
+// Messages
+$color-status                 : rgb(76,157,42);
+$color-warning                : rgb(250,220,59);
+$color-error                  : red;
+
+// Tabs
+$tabs-link-active: $color-text;
+$tabs-link-inactive: $color-link;
+$tabs-link-inactive-hover: $color-link-hover;
+$tabs-border: #bbb;
+
+/**
+ * Default Border Radius
+ * @type number
+ */
+$border-radius: 9px;
+
+
+/**
+ * Base font size in used in _mixins.scss
+ * @type number
+ */
+
+$base-font-size-value         : 18;
+$base-font-size               : $base-font-size-value * 1px ;
+
+/**
+ * Base line-height in used in _mixins.scss
+ * @type number
+ */
+
+$base-line-height-ratio       : calc( 27 / $base-font-size-value );
+$base-line-height             : ( $base-font-size-value * $base-line-height-ratio ) * 1px;
+
+
+// Font Stacks
+// ===========
+
+/**
+ * (optional) URL for Google Fonts import
+ * @type string
+ */
+
+// $google-fonts-url          : 'http://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Code+Pro';
+
+
+/**
+ * define font stack used for sans-serifs
+ * @type string
+ */
+
+$font-family-sans             : 'Roboto', sans-serif;
+$font-family-fallback-sans    : sans-serif;
+
+/**
+ * define font stack used for serifs
+ * @type string
+ */
+
+$font-family-serif            : serif;
+$font-family-fallback-serif   : serif;
+
+/**
+ * define font stack used for condensed font
+ * @type string
+ */
+
+$font-family-condensed          : sans-serif;
+$font-family-fallback-condensed : sans-serif;
+
+/**
+ * define font stack used for monospaced copy
+ * @type string
+ */
+
+$font-family-monospace        : 'Inconsolata', "Menlo", Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
+                                'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L',
+                                Monaco, 'Courier New', Courier, monospace;
+
+/**
+ * define font stack used for headings
+ * @requires {variable} $font-family-serif
+ * @type string
+ */
+
+$font-family-display          : $font-family-condensed;
+$font-family-display-fallback : $font-family-fallback-condensed;
+
+/**
+ * define font stack used for paragraphs
+ * @requires {variable} font-family-sans
+ * @type string
+ */
+
+$font-family-default          : $font-family-sans;
+$font-family-fallback         : $font-family-fallback-sans;
+
+// Font Weights
+// ============
+
+$font-weight-light            : 300;
+$font-weight-normal           : 400;
+$font-weight-semibold         : 600;
+$font-weight-bold             : 700;
+$font-weight-black            : 900;
+
+
+// Breakpoints
+// Define your own breakpoints to suit the design
+// ============
+
+@include breakpoint-set('to ems', true);
+@include breakpoint-set('no query fallbacks', false);
+
+$bp-middle-start: 500px; 
+$bp-wide-start: 800px;
+$bp-extra-wide-start: 1200px; 
+
+$bp-narrow: max-width ($bp-middle-start - 1px);
+$bp-middle: $bp-middle-start ($bp-wide-start - 1px);
+$bp-wide: $bp-wide-start, 'no-query' '.lt-ie9';
+
+$bp-narrow-and-middle: max-width ($bp-wide-start - 1px);
+$bp-middle-and-wide: $bp-middle-start;
+
+$bp-wide-to-extra-wide: $bp-wide-start $bp-extra-wide-start;
+$bp-extra-wide: $bp-extra-wide-start;
+
+// Navigation Breakpoints 
+$nav-switch-point: 800px;
+$bp-nav-collapsed: max-width ($nav-switch-point - 1px);
+$bp-nav-open:      $nav-switch-point;
+
+
+// CSS Box Model
+// @link: http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+// @type string
+// ===========
+$box-sizing-default: border-box;
+

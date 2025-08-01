@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Pager
+   ========================================================================== */
+
+/* A list of page numbers when more than 1 page of content is available. */
+.pager__items {
+  clear: both;
+  padding: 0;
+  text-align: center;
+}
+
+.pager__item{
+  display: inline;
+  padding: 0 0.5em;
+  list-style-type: none;
+  background-image: none;
+
+  &.is-active {
+    font-weight: bold;
+  }
+}

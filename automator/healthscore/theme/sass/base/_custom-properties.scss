@@ -1,0 +1,21 @@
+/* ==========================================================================
+   CSS Custom Properties
+   ========================================================================== */
+
+:root {
+  --black: #{$black};
+  --white: #{$white};
+  --gray-charcoal: #{$gray-charcoal};
+  --gray-light-warm: #{$gray-light-warm};
+  --gray-light-cool: #{$gray-light-cool};
+  --red-primary: #{$red-primary};
+  --gray-primary: #{$gray-primary};
+  --yellow: #{$yellow};
+  --red-brick: #{$red-brick};
+  --blue: #{$blue};
+  --green: #{$green};
+  --color-text: #{$color-text};
+  --color-text-light: #{$color-text-light};
+  --color-link: #{$color-link};
+  --color-link-hover: #{$color-link-hover};
+}

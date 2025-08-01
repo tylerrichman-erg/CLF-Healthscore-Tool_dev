@@ -1,0 +1,111 @@
+/* ==========================================================================
+   Modals
+   https://a11y-dialog.netlify.app/
+   ========================================================================== */
+
+/**
+ * 1. Make the dialog container, and its child overlay spread across
+ *    the entire window.
+ */
+.dialog-container,
+.dialog-overlay {
+  position: fixed;
+  /* 1 */
+  top: 0;
+  /* 1 */
+  right: 0;
+  /* 1 */
+  bottom: 0;
+  /* 1 */
+  left: 0;
+  /* 1 */
+}
+
+/**
+  * 1. Make sure the dialog container and all its descendants sits on
+  *    top of the rest of the page.
+  * 2. Make the dialog container a flex container to easily center the
+  *    dialog.
+  */
+.dialog-container {
+  z-index: 20;
+  /* 1 */
+  display: flex;
+  /* 2 */
+}
+
+/**
+  * 1. Make sure the dialog container and all its descendants are not
+  *    visible and not focusable when it is hidden.
+  */
+.dialog-container[aria-hidden='true'] {
+  display: none;
+  /* 1 */
+}
+
+/**
+  * 1. Make the overlay look like an overlay.
+  */
+.dialog-overlay {
+  background-color: rgb(43 46 56 / 0.9);
+  /* 1 */
+}
+
+/**
+  * 1. Vertically and horizontally center the dialog in the page.
+  * 2. Make sure the dialog sits on top of the overlay.
+  * 3. Make sure the dialog has an opaque background.
+  */
+.dialog-content {
+  margin: auto;
+  /* 1 */
+  z-index: 21;
+  /* 2 */
+  position: relative;
+  /* 2 */
+  background-color: white;
+  /* 3 */
+  overflow: auto;
+  max-height: 90vh;
+  width: 80vw;
+  max-width: rem(880);
+  padding: rem(40) rem(60);
+  border-radius: rem(13);
+  border: 1px solid $color-border;
+  box-shadow: 0 3px 6px rgba(#000,.15);
+  animation: fade-in 400ms 200ms both, slide-up 400ms 200ms both;
+}
+
+/**
+ * Custom Styling
+ */
+.modal {
+  &__close {
+    position: absolute;
+    top: rem(45);
+    right: rem(60);
+    appearance: none;
+    cursor: pointer;
+    width: rem(20);
+    height: rem(20);
+    text-indent: -9999px;
+    overflow: hidden;
+    border: 0;
+    background-color: $gray-primary;
+    mask-image: image('icon--close.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    transition: background-color .3s ease-in-out;
+  
+    &:hover,
+    &:focus {
+      background-color: $red-primary;
+    }
+  }
+
+  &__title {
+    margin-block: 0 rem(10);
+    padding-right: rem(60); // space for close button
+    font-size: rem(34);
+  }
+}

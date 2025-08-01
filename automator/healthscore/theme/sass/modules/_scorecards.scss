@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Scorecards
+   ========================================================================== */
+
+.scorecards {
+  margin: rem(30) 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: rem(40) rem(30);
+  grid-template-columns: 1fr;
+  @include breakpoint(600px) {
+    grid-template-columns: repeat(auto-fill, minmax(rem(330), 1fr));
+  }
+}
+
+.scorecard {
+  padding: rem(16) rem(14) rem(20);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $color-border;
+  border-radius: rem(8);
+  box-shadow: 0 3px 6px rgba(0,0,0,.16);
+
+  &__datetime {
+    margin: 0 0 rem(12);
+    padding-bottom: rem(5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(5);
+    border-bottom: 1px solid $color-border;
+    font-size: rem(12);
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin-block: 0 rem(9);
+    display: flex;
+    align-items: center;
+    gap: rem(10);
+    font-size: rem(20);
+    line-height: calc(23/20);
+    font-weight: $font-weight-bold;
+    color: $blue;
+
+    span {
+      display: block;
+    }
+  }
+
+  .button-link {
+    font-size: rem(12);
+    font-weight: $font-weight-bold;
+  }
+
+  &__address {
+    margin-block: 0 rem(20);
+    padding-bottom: rem(8);
+    border-bottom: 1px solid $color-border;
+    font-size: rem(16);
+  }
+
+  &__tract {
+    margin-block: 0 rem(10);
+    font-size: rem(14);
+    strong {
+      display: block;
+      font-size: rem(13);
+    }
+  }
+
+  &__actions {
+    margin-top: auto;
+    padding-top: rem(20);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: rem(10);
+
+    > * {
+      margin: 0;
+    }
+  }
+
+  &__scenario {
+    margin-left: auto;
+    font-size: rem(12);
+    font-weight: $font-weight-bold;
+    color: $blue;
+  }
+}
+
+/**
+ * Scorecard title edit form
+ */
+.form--scorecard-title {
+  display: flex;
+  align-items: last baseline;
+  gap: rem(5);
+
+  input[type="text"] {
+    width: 100%;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,39 @@
+community_id,metric,valence
+1,Life Expectancy,1
+2,Life Expectancy,-1
+1,Cancer (excluding skin cancer) among adults >= 18,-1
+2,Cancer (excluding skin cancer) among adults >= 18,1
+1,Current asthma among adults >= 18,-1
+2,Current asthma among adults >= 18,1
+1,COPD among adults >= 18,-1
+2,COPD among adults >= 18,1
+1,Coronary heart disease among adults >= 18,-1
+2,Coronary heart disease among adults >= 18,1
+1,Diabetes among adults >= 18,-1
+2,Diabetes among adults >= 18,1
+1,Stroke among adults >= 18,-1
+2,Stroke among adults >= 18,1
+1,Mental health not good for >= 14 days among adults >= 18,-1
+2,Mental health not good for >= 14 days among adults >= 18,1
+1,% Public Transit,1
+2,% Public Transit,1
+1,% Walked,1
+2,% Walked,1
+1,% Bicycle,1
+2,% Bicycle,1
+1,Poverty Rate (%),-1
+2,Poverty Rate (%),1
+1,Unemployment Rate (%),-1
+2,Unemployment Rate (%),1
+1,"Associates, Bachelors degree, or higher (%)",1
+2,"Associates, Bachelors degree, or higher (%)",-1
+1,Limited English-speaking Households (%),-1
+2,Limited English-speaking Households (%),1
+1,Population of Color (%),-1
+2,Population of Color (%),1
+1,Cost-Burdened Renters (%),-1
+2,Cost-Burdened Renters (%),1
+1,Population of Low-Income Children <5 (%),-1
+2,Population of Low-Income Children <5 (%),1
+1,Population of Low-Income Seniors >65 (%),-1
+2,Population of Low-Income Seniors >65 (%),1

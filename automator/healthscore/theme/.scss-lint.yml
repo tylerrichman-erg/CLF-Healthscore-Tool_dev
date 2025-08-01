@@ -1,0 +1,4 @@
+# Allow BEM class naming convention
+linters:
+  SelectorFormat:
+    convention: hyphenated_BEM

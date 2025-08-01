@@ -1,0 +1,193 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+
+/* ==========================================================================
+   Layout Helpers
+   ========================================================================== */
+
+@mixin layout-container {
+  width: 95%;
+  max-width: 1100px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+@mixin remove-child-margins {
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+/**
+    * Clearfix
+    */
+
+@mixin clearfix {
+
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+
+/**
+  * Makes an element visually hidden, but accessible.
+  * @link http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+  */
+
+@mixin element-invisible {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/**
+    * Turns off the element-invisible effect.
+    */
+@mixin element-invisible-off {
+  position: static !important;
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: auto;
+}
+
+/**
+    * Makes an element visually hidden by default, but visible when focused.
+    */
+@mixin element-focusable {
+  @include element-invisible;
+
+  &:active,
+  &:focus {
+    @include element-invisible-off;
+  }
+}
+
+
+/**
+    * Font weight
+    */
+@mixin font-weight($weight) {
+  font-weight: $weight;
+  font-variation-settings: "wght"$weight;
+}
+
+
+/**
+    * Layout Debug Helpers
+    */
+@mixin debuglayout {
+  outline: 1px dotted red;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+@mixin button-core {
+  display: inline-block;
+  vertical-align: top;
+  font-size: rem(20);
+  font-weight: $font-weight-bold;
+  line-height: calc(24/20);
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  background-position: rem(15) 50%;
+}
+
+@mixin button-solid {
+  @include button-core;
+  padding: rem(18) rem(30);
+  border: none;
+}
+
+@mixin button-solid--small {
+  padding: rem(11) rem(21);
+  font-size: rem(16);
+  line-height: calc(18/16);
+}
+
+@mixin button-outline {
+  @include button-core;
+  padding: rem(17) rem(30);
+  border: 1px solid;
+  background-color: transparent;
+}
+
+@mixin button--primary {
+  @include button-solid;
+  color: $white;
+  background-color: $red-primary;
+
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: darken($red-primary , 10%);
+  }
+}
+
+@mixin button--secondary {
+  @include button-solid;
+  color: $color-text;
+  background-color: $yellow;
+
+  &:hover,
+  &:focus {
+    color: $color-text;
+    background-color: darken($yellow, 10%);
+  }
+}
+
+@mixin button--download {
+  @include button-solid;
+  color: $white;
+  background-color: $red-primary;
+  padding-left: rem(50);
+  background-image: image('icon--download.svg');
+  background-position: rem(15) 50%;
+  background-repeat: no-repeat;
+
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: darken($red-primary , 10%);
+  }
+}
+
+@mixin button--save {
+  @include button-outline;
+  color: $red-primary;
+  padding-left: em(45) !important;
+  background-image: image('icon--save.svg');
+  background-size: em(20);
+  background-position: em(15) 50%;
+  background-repeat: no-repeat;
+
+  &:hover,
+  &:focus {
+    color: darken($red-primary , 10%);
+  }
+}

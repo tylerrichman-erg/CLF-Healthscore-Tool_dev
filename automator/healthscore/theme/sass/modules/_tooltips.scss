@@ -1,0 +1,72 @@
+// ==========================================================================
+// Tooltips (created with tooltips.js
+// on elements with class .tooltip 
+// ==========================================================================
+
+.tooltip-container {
+  position: relative;
+
+  &:hover,
+  &:focus-within {
+    button {
+      background-color: $color-accent;
+    }
+    .tooltip-bubble {
+      border-color: $color-accent;
+    }
+  }
+
+  button {
+    position: relative;
+    appearance: none;
+    cursor: default;
+    border: 0;
+    background-color: $gray-primary;
+    color: $white;
+    display: inline-block;
+    vertical-align: text-top;
+    padding: 0;
+    font-size: .5em;
+    line-height: 1;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 1em;
+  }
+}
+
+.tooltip-bubble {
+  display: block;
+  padding: 1em;
+  position: absolute;
+  z-index: 3;
+  top: .5em;
+  left: -7.25em;
+  width: 16em;
+  transition: all .3s;
+  border-radius: $border-radius;
+  color: $color-text;
+  background-color: $white;
+  border: 1px solid $color-text-light;
+  box-shadow: 0 .125em .125em rgba($black, .3);
+  font-size: rem(14);
+  font-weight: normal;
+
+  .tooltip-container.bottom & {
+    top: auto;
+    bottom: .5em;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  // offset to left of button
+  // &.left {
+  //   right: .5em;
+  // }
+
+  ///offset to right
+  // &.right {
+  //   left: .5em;
+  // } 
+}

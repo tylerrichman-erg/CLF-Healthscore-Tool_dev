@@ -1,0 +1,28 @@
+state_id,metric,value,moe
+2,Life Expectancy,80.9,0.072912
+2,PLACES population,3577073,0
+2,Cancer (excluding skin cancer) among adults >= 18,7.5,0.6
+2,Current asthma among adults >= 18,10.3,0.8
+2,COPD among adults >= 18,5.3,0.55
+2,Coronary heart disease among adults >= 18,3.7,0.45
+2,Diabetes among adults >= 18,9.7,0.7
+2,Stroke among adults >= 18,2.6,0.4
+2,Mental health not good for >= 14 days among adults >= 18,11.3,0.95
+1,Life Expectancy,80.7,0.052332
+1,PLACES population,6557254,0
+1,Cancer (excluding skin cancer) among adults >= 18,6.8,0.75
+1,Current asthma among adults >= 18,10.2,0.95
+1,COPD among adults >= 18,5.1,0.65
+1,Coronary heart disease among adults >= 18,3.5,0.5
+1,Diabetes among adults >= 18,8.6,0.85
+1,Stroke among adults >= 18,2.4,0.4
+1,Mental health not good for >= 14 days among adults >= 18,12.5,1.05
+3,Life Expectancy,79.9,0.1323
+3,PLACES population,1052886,0
+3,Cancer (excluding skin cancer) among adults >= 18,7.3,0.75
+3,Current asthma among adults >= 18,11.9,1.25
+3,COPD among adults >= 18,6.9,0.85
+3,Coronary heart disease among adults >= 18,3.9,0.55
+3,Diabetes among adults >= 18,10.9,1.05
+3,Stroke among adults >= 18,3.1,0.55
+3,Mental health not good for >= 14 days among adults >= 18,13.9,1.4

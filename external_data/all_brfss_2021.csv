@@ -1,0 +1,344 @@
+ID,YearStart,StateAbbrev,State,Metric,Value,Low_Confidence_Limit,High_Confidence_Limit
+1141115,2021,AL,Alabama,Current asthma among adults >= 18,10.1,8.9,11.3
+1141303,2021,AK,Alaska,Current asthma among adults >= 18,9,7.9,10.2
+1141448,2021,AZ,Arizona,Current asthma among adults >= 18,9.4,8.6,10.2
+1140997,2021,AR,Arkansas,Current asthma among adults >= 18,9,7.9,10.3
+1141583,2021,CA,California,Current asthma among adults >= 18,8.8,7.9,9.7
+1141432,2021,CO,Colorado,Current asthma among adults >= 18,10.4,9.7,11.2
+1140986,2021,CT,Connecticut,Current asthma among adults >= 18,10.5,9.6,11.5
+1141292,2021,DE,Delaware,Current asthma among adults >= 18,9.8,8.6,11.3
+1140831,2021,GA,Georgia,Current asthma among adults >= 18,9.4,8.4,10.4
+1141441,2021,HI,Hawaii,Current asthma among adults >= 18,8.1,7.3,9
+1141572,2021,ID,Idaho,Current asthma among adults >= 18,9.8,8.9,10.7
+1141180,2021,IL,Illinois,Current asthma among adults >= 18,8.7,7.4,10.2
+1141088,2021,IN,Indiana,Current asthma among adults >= 18,10.3,9.6,11.1
+1141183,2021,IA,Iowa,Current asthma among adults >= 18,9.1,8.4,10
+1140977,2021,KS,Kansas,Current asthma among adults >= 18,10.6,10,11.2
+1140932,2021,KY,Kentucky,Current asthma among adults >= 18,11.7,10.6,12.9
+1141488,2021,LA,Louisiana,Current asthma among adults >= 18,9.7,8.6,10.9
+1141405,2021,ME,Maine,Current asthma among adults >= 18,12.5,11.6,13.4
+1140973,2021,MD,Maryland,Current asthma among adults >= 18,9.4,8.7,10.1
+1141472,2021,MA,Massachusetts,Current asthma among adults >= 18,11.7,10.7,12.8
+1140914,2021,MI,Michigan,Current asthma among adults >= 18,11.5,10.7,12.4
+1140920,2021,MN,Minnesota,Current asthma among adults >= 18,8.8,8.2,9.3
+1141245,2021,MS,Mississippi,Current asthma among adults >= 18,10,8.8,11.4
+1141477,2021,MO,Missouri,Current asthma among adults >= 18,9.4,8.6,10.3
+1140963,2021,MT,Montana,Current asthma among adults >= 18,9.7,8.8,10.7
+1141558,2021,NE,Nebraska,Current asthma among adults >= 18,8.2,7.6,8.9
+1141377,2021,NV,Nevada,Current asthma among adults >= 18,9.1,7.7,10.8
+1141555,2021,NH,New Hampshire,Current asthma among adults >= 18,12.1,11,13.3
+1141467,2021,NJ,New Jersey,Current asthma among adults >= 18,8.9,8.1,9.9
+1141261,2021,NM,New Mexico,Current asthma among adults >= 18,10.6,9.6,11.7
+1141527,2021,NY,New York,Current asthma among adults >= 18,9.8,9.3,10.4
+1141246,2021,NC,North Carolina,Current asthma among adults >= 18,8.7,7.7,9.7
+1141257,2021,ND,North Dakota,Current asthma among adults >= 18,8.4,7.5,9.4
+1141341,2021,OH,Ohio,Current asthma among adults >= 18,10.4,9.7,11.2
+1141142,2021,OK,Oklahoma,Current asthma among adults >= 18,10.9,9.9,12
+1141536,2021,OR,Oregon,Current asthma among adults >= 18,11.2,10.2,12.2
+1141363,2021,PA,Pennsylvania,Current asthma among adults >= 18,10.3,9.4,11.3
+1141531,2021,RI,Rhode Island,Current asthma among adults >= 18,12.6,11.5,13.9
+1140897,2021,SC,South Carolina,Current asthma among adults >= 18,9.2,8.3,10.1
+1141370,2021,SD,South Dakota,Current asthma among adults >= 18,8.3,6.9,10
+1140956,2021,TN,Tennessee,Current asthma among adults >= 18,10.3,9.2,11.6
+1140885,2021,TX,Texas,Current asthma among adults >= 18,8.4,7.5,9.3
+1140888,2021,UT,Utah,Current asthma among adults >= 18,9.7,9,10.5
+1141201,2021,VT,Vermont,Current asthma among adults >= 18,11.8,10.6,13
+1141497,2021,VA,Virginia,Current asthma among adults >= 18,9.8,9,10.6
+1141514,2021,WA,Washington,Current asthma among adults >= 18,10.5,9.8,11.2
+1140785,2021,WV,West Virginia,Current asthma among adults >= 18,12.1,11.1,13.1
+1141006,2021,WI,Wisconsin,Current asthma among adults >= 18,10.8,9.7,12
+1140909,2021,WY,Wyoming,Current asthma among adults >= 18,9.7,8.5,11.1
+4387939,2021,AL,Alabama,COPD among adults >= 18,9.4,8.3,10.5
+4378164,2021,AK,Alaska,COPD among adults >= 18,5.7,4.9,6.5
+4380218,2021,AZ,Arizona,COPD among adults >= 18,5.7,5.2,6.3
+4389831,2021,AR,Arkansas,COPD among adults >= 18,9.6,8.6,10.6
+4393859,2021,CA,California,COPD among adults >= 18,4.6,3.9,5.2
+4398002,2021,CO,Colorado,COPD among adults >= 18,5.1,4.6,5.6
+4392776,2021,CT,Connecticut,COPD among adults >= 18,5.3,4.6,6
+4415047,2021,DE,Delaware,COPD among adults >= 18,6.2,5.3,7.2
+4414353,2021,GA,Georgia,COPD among adults >= 18,6.6,5.9,7.4
+4424350,2021,HI,Hawaii,COPD among adults >= 18,3.5,3,4
+4430579,2021,ID,Idaho,COPD among adults >= 18,5.7,5.1,6.4
+4419649,2021,IL,Illinois,COPD among adults >= 18,5.5,4.6,6.5
+4434480,2021,IN,Indiana,COPD among adults >= 18,8.5,7.9,9.1
+4432960,2021,IA,Iowa,COPD among adults >= 18,6.6,6,7.2
+4433281,2021,KS,Kansas,COPD among adults >= 18,6.4,6,6.9
+4452574,2021,KY,Kentucky,COPD among adults >= 18,10.9,9.8,12
+4456207,2021,LA,Louisiana,COPD among adults >= 18,8.7,7.7,9.7
+4447824,2021,ME,Maine,COPD among adults >= 18,9,8.2,9.7
+4472206,2021,MD,Maryland,COPD among adults >= 18,4.8,4.4,5.3
+4470854,2021,MA,Massachusetts,COPD among adults >= 18,5.9,5.1,6.6
+4467354,2021,MI,Michigan,COPD among adults >= 18,7.7,7.1,8.4
+4464187,2021,MN,Minnesota,COPD among adults >= 18,4.7,4.3,5.1
+4483210,2021,MS,Mississippi,COPD among adults >= 18,9.1,8,10.1
+4483562,2021,MO,Missouri,COPD among adults >= 18,8.5,7.8,9.3
+4479740,2021,MT,Montana,COPD among adults >= 18,5.9,5.2,6.6
+4490122,2021,NE,Nebraska,COPD among adults >= 18,5.6,5.1,6.1
+4496303,2021,NV,Nevada,COPD among adults >= 18,6.8,5.7,8
+4491349,2021,NH,New Hampshire,COPD among adults >= 18,7.2,6.4,8
+4509891,2021,NJ,New Jersey,COPD among adults >= 18,5.5,4.8,6.2
+4517910,2021,NM,New Mexico,COPD among adults >= 18,5.6,4.9,6.3
+4516796,2021,NY,New York,COPD among adults >= 18,5.5,5.1,5.8
+4527293,2021,NC,North Carolina,COPD among adults >= 18,7.6,6.6,8.6
+4524032,2021,ND,North Dakota,COPD among adults >= 18,4.8,4.2,5.5
+4526629,2021,OH,Ohio,COPD among adults >= 18,8.6,8,9.2
+4544021,2021,OK,Oklahoma,COPD among adults >= 18,7.8,6.9,8.6
+4535612,2021,OR,Oregon,COPD among adults >= 18,6,5.3,6.8
+4537868,2021,PA,Pennsylvania,COPD among adults >= 18,6.8,6,7.7
+4546073,2021,RI,Rhode Island,COPD among adults >= 18,5.7,4.9,6.6
+4554666,2021,SC,South Carolina,COPD among adults >= 18,7.5,6.8,8.2
+4558506,2021,SD,South Dakota,COPD among adults >= 18,6,4.6,7.3
+4553755,2021,TN,Tennessee,COPD among adults >= 18,10.4,9.3,11.5
+4572740,2021,TX,Texas,COPD among adults >= 18,6,5.3,6.8
+4568403,2021,UT,Utah,COPD among adults >= 18,4.3,3.8,4.8
+4565284,2021,VT,Vermont,COPD among adults >= 18,6.6,5.8,7.5
+4584154,2021,VA,Virginia,COPD among adults >= 18,6.4,5.8,7
+4589185,2021,WA,Washington,COPD among adults >= 18,5.2,4.7,5.6
+4576691,2021,WV,West Virginia,COPD among adults >= 18,13.1,12.2,14
+4600667,2021,WI,Wisconsin,COPD among adults >= 18,5.6,4.7,6.4
+4591837,2021,WY,Wyoming,COPD among adults >= 18,6.5,5.6,7.5
+4385458,2021,AL,Alabama,Cancer (excluding skin cancer) among adults >= 18,8.5,7.5,9.5
+4389105,2021,AK,Alaska,Cancer (excluding skin cancer) among adults >= 18,6.2,5.3,7
+4379495,2021,AZ,Arizona,Cancer (excluding skin cancer) among adults >= 18,7.5,6.9,8.2
+4392688,2021,AR,Arkansas,Cancer (excluding skin cancer) among adults >= 18,8.2,7.4,9.1
+4398070,2021,CA,California,Cancer (excluding skin cancer) among adults >= 18,5.4,4.7,6
+4392116,2021,CO,Colorado,Cancer (excluding skin cancer) among adults >= 18,6.4,5.9,7
+4399772,2021,CT,Connecticut,Cancer (excluding skin cancer) among adults >= 18,7.5,6.8,8.3
+4406160,2021,DE,Delaware,Cancer (excluding skin cancer) among adults >= 18,7.8,6.8,8.8
+4404417,2021,GA,Georgia,Cancer (excluding skin cancer) among adults >= 18,5.8,5.3,6.4
+4427607,2021,HI,Hawaii,Cancer (excluding skin cancer) among adults >= 18,6.1,5.4,6.9
+4426584,2021,ID,Idaho,Cancer (excluding skin cancer) among adults >= 18,7.4,6.7,8.2
+4427403,2021,IL,Illinois,Cancer (excluding skin cancer) among adults >= 18,7.9,6.7,9.1
+4444352,2021,IN,Indiana,Cancer (excluding skin cancer) among adults >= 18,7.5,6.9,8
+4443354,2021,IA,Iowa,Cancer (excluding skin cancer) among adults >= 18,7.5,6.9,8.1
+4441160,2021,KS,Kansas,Cancer (excluding skin cancer) among adults >= 18,7.2,6.8,7.7
+4456048,2021,KY,Kentucky,Cancer (excluding skin cancer) among adults >= 18,7.6,6.8,8.5
+4452397,2021,LA,Louisiana,Cancer (excluding skin cancer) among adults >= 18,8.1,7.2,8.9
+4454881,2021,ME,Maine,Cancer (excluding skin cancer) among adults >= 18,8.6,8,9.3
+4461358,2021,MD,Maryland,Cancer (excluding skin cancer) among adults >= 18,6.9,6.4,7.4
+4474259,2021,MA,Massachusetts,Cancer (excluding skin cancer) among adults >= 18,7.4,6.7,8.2
+4468219,2021,MI,Michigan,Cancer (excluding skin cancer) among adults >= 18,8.2,7.6,8.8
+4472209,2021,MN,Minnesota,Cancer (excluding skin cancer) among adults >= 18,7.3,6.8,7.7
+4479488,2021,MS,Mississippi,Cancer (excluding skin cancer) among adults >= 18,7.9,7,8.8
+4483476,2021,MO,Missouri,Cancer (excluding skin cancer) among adults >= 18,7.9,7.2,8.6
+4479281,2021,MT,Montana,Cancer (excluding skin cancer) among adults >= 18,7.2,6.5,7.9
+4496056,2021,NE,Nebraska,Cancer (excluding skin cancer) among adults >= 18,6.7,6.2,7.2
+4503439,2021,NV,Nevada,Cancer (excluding skin cancer) among adults >= 18,6.9,5.7,8.1
+4500091,2021,NH,New Hampshire,Cancer (excluding skin cancer) among adults >= 18,7.9,7.2,8.7
+4508597,2021,NJ,New Jersey,Cancer (excluding skin cancer) among adults >= 18,6.8,6.1,7.4
+4514116,2021,NM,New Mexico,Cancer (excluding skin cancer) among adults >= 18,5.9,5.1,6.6
+4513038,2021,NY,New York,Cancer (excluding skin cancer) among adults >= 18,6.3,5.9,6.7
+4523278,2021,NC,North Carolina,Cancer (excluding skin cancer) among adults >= 18,6.8,6,7.7
+4520443,2021,ND,North Dakota,Cancer (excluding skin cancer) among adults >= 18,7.6,6.8,8.3
+4520083,2021,OH,Ohio,Cancer (excluding skin cancer) among adults >= 18,8.3,7.7,8.9
+4539817,2021,OK,Oklahoma,Cancer (excluding skin cancer) among adults >= 18,7.7,6.9,8.5
+4546590,2021,OR,Oregon,Cancer (excluding skin cancer) among adults >= 18,7.8,7,8.5
+4534787,2021,PA,Pennsylvania,Cancer (excluding skin cancer) among adults >= 18,8.1,7.2,8.9
+4550480,2021,RI,Rhode Island,Cancer (excluding skin cancer) among adults >= 18,7.3,6.4,8.1
+4551473,2021,SC,South Carolina,Cancer (excluding skin cancer) among adults >= 18,7.5,6.9,8.1
+4557976,2021,SD,South Dakota,Cancer (excluding skin cancer) among adults >= 18,7.8,6.6,9.1
+4552588,2021,TN,Tennessee,Cancer (excluding skin cancer) among adults >= 18,7.9,6.9,8.9
+4569634,2021,TX,Texas,Cancer (excluding skin cancer) among adults >= 18,6,5.2,6.8
+4569433,2021,UT,Utah,Cancer (excluding skin cancer) among adults >= 18,6.4,5.8,6.9
+4571634,2021,VT,Vermont,Cancer (excluding skin cancer) among adults >= 18,7.5,6.6,8.3
+4580162,2021,VA,Virginia,Cancer (excluding skin cancer) among adults >= 18,7.3,6.7,7.9
+4586015,2021,WA,Washington,Cancer (excluding skin cancer) among adults >= 18,7,6.6,7.5
+4578702,2021,WV,West Virginia,Cancer (excluding skin cancer) among adults >= 18,7.7,7,8.4
+4597576,2021,WI,Wisconsin,Cancer (excluding skin cancer) among adults >= 18,8,7.2,8.8
+4602597,2021,WY,Wyoming,Cancer (excluding skin cancer) among adults >= 18,6.8,5.9,7.6
+4383893,2021,AL,Alabama,Coronary heart disease among adults >= 18,5.6,4.7,6.4
+4387165,2021,AK,Alaska,Coronary heart disease among adults >= 18,3.2,2.6,3.8
+4377789,2021,AZ,Arizona,Coronary heart disease among adults >= 18,3.7,3.3,4.2
+4386227,2021,AR,Arkansas,Coronary heart disease among adults >= 18,5.9,5.1,6.6
+4396664,2021,CA,California,Coronary heart disease among adults >= 18,3.2,2.6,3.8
+4396838,2021,CO,Colorado,Coronary heart disease among adults >= 18,2.5,2.2,2.8
+4390138,2021,CT,Connecticut,Coronary heart disease among adults >= 18,3.3,2.8,3.8
+4414021,2021,DE,Delaware,Coronary heart disease among adults >= 18,4.2,3.4,4.9
+4412363,2021,GA,Georgia,Coronary heart disease among adults >= 18,3.8,3.3,4.4
+4424385,2021,HI,Hawaii,Coronary heart disease among adults >= 18,2.6,2.1,3
+4431848,2021,ID,Idaho,Coronary heart disease among adults >= 18,3.5,3,4
+4418475,2021,IL,Illinois,Coronary heart disease among adults >= 18,3.5,2.8,4.2
+4446352,2021,IN,Indiana,Coronary heart disease among adults >= 18,4.4,4,4.8
+4438103,2021,IA,Iowa,Coronary heart disease among adults >= 18,3.8,3.4,4.2
+4440848,2021,KS,Kansas,Coronary heart disease among adults >= 18,4.2,3.9,4.6
+4450902,2021,KY,Kentucky,Coronary heart disease among adults >= 18,6.1,5.3,7
+4454282,2021,LA,Louisiana,Coronary heart disease among adults >= 18,4.6,3.9,5.2
+4457865,2021,ME,Maine,Coronary heart disease among adults >= 18,5.2,4.7,5.8
+4470716,2021,MD,Maryland,Coronary heart disease among adults >= 18,3.5,3.1,3.8
+4475152,2021,MA,Massachusetts,Coronary heart disease among adults >= 18,3.6,3,4.1
+4462633,2021,MI,Michigan,Coronary heart disease among adults >= 18,4.3,3.8,4.8
+4470806,2021,MN,Minnesota,Coronary heart disease among adults >= 18,3.6,3.3,3.9
+4478420,2021,MS,Mississippi,Coronary heart disease among adults >= 18,5.8,5,6.7
+4485405,2021,MO,Missouri,Coronary heart disease among adults >= 18,4.2,3.7,4.7
+4482673,2021,MT,Montana,Coronary heart disease among adults >= 18,3.8,3.3,4.3
+4495974,2021,NE,Nebraska,Coronary heart disease among adults >= 18,3.4,3.1,3.7
+4499481,2021,NV,Nevada,Coronary heart disease among adults >= 18,3.6,2.7,4.5
+4494528,2021,NH,New Hampshire,Coronary heart disease among adults >= 18,3.8,3.2,4.3
+4507993,2021,NJ,New Jersey,Coronary heart disease among adults >= 18,3.3,2.9,3.8
+4516362,2021,NM,New Mexico,Coronary heart disease among adults >= 18,2.8,2.3,3.3
+4507170,2021,NY,New York,Coronary heart disease among adults >= 18,3.9,3.6,4.2
+4532623,2021,NC,North Carolina,Coronary heart disease among adults >= 18,4.7,3.9,5.4
+4522283,2021,ND,North Dakota,Coronary heart disease among adults >= 18,3.4,2.9,4
+4528894,2021,OH,Ohio,Coronary heart disease among adults >= 18,4.6,4.2,5.1
+4545220,2021,OK,Oklahoma,Coronary heart disease among adults >= 18,5.1,4.4,5.8
+4537556,2021,OR,Oregon,Coronary heart disease among adults >= 18,3.8,3.2,4.4
+4537346,2021,PA,Pennsylvania,Coronary heart disease among adults >= 18,4.6,4,5.3
+4540966,2021,RI,Rhode Island,Coronary heart disease among adults >= 18,3.7,3.1,4.3
+4551830,2021,SC,South Carolina,Coronary heart disease among adults >= 18,4.3,3.8,4.8
+4559622,2021,SD,South Dakota,Coronary heart disease among adults >= 18,4.4,3.4,5.4
+4547622,2021,TN,Tennessee,Coronary heart disease among adults >= 18,5.2,4.4,5.9
+4564205,2021,TX,Texas,Coronary heart disease among adults >= 18,3,2.5,3.4
+4566568,2021,UT,Utah,Coronary heart disease among adults >= 18,2.4,2.1,2.7
+4573491,2021,VT,Vermont,Coronary heart disease among adults >= 18,4.1,3.4,4.8
+4581818,2021,VA,Virginia,Coronary heart disease among adults >= 18,3.5,3,3.9
+4587719,2021,WA,Washington,Coronary heart disease among adults >= 18,3,2.7,3.4
+4580067,2021,WV,West Virginia,Coronary heart disease among adults >= 18,7.2,6.5,7.9
+4596798,2021,WI,Wisconsin,Coronary heart disease among adults >= 18,3.6,3.1,4.2
+4596819,2021,WY,Wyoming,Coronary heart disease among adults >= 18,3.1,2.5,3.7
+4376501,2021,AL,Alabama,Diabetes among adults >= 18,15.1,13.8,16.4
+4380241,2021,AK,Alaska,Diabetes among adults >= 18,8.3,7.3,9.4
+4384390,2021,AZ,Arizona,Diabetes among adults >= 18,11,10.2,11.8
+4399335,2021,AR,Arkansas,Diabetes among adults >= 18,12.5,11.4,13.5
+4397034,2021,CA,California,Diabetes among adults >= 18,11.6,10.6,12.7
+4403876,2021,CO,Colorado,Diabetes among adults >= 18,7,6.4,7.6
+4395775,2021,CT,Connecticut,Diabetes among adults >= 18,10.8,9.9,11.8
+4405407,2021,DE,Delaware,Diabetes among adults >= 18,12,10.6,13.3
+4406066,2021,GA,Georgia,Diabetes among adults >= 18,12.3,11.3,13.2
+4426184,2021,HI,Hawaii,Diabetes among adults >= 18,9.5,8.6,10.4
+4431932,2021,ID,Idaho,Diabetes among adults >= 18,9.8,9,10.6
+4431254,2021,IL,Illinois,Diabetes among adults >= 18,10.8,9.5,12.2
+4446702,2021,IN,Indiana,Diabetes among adults >= 18,12.1,11.4,12.8
+4436105,2021,IA,Iowa,Diabetes among adults >= 18,9.7,9,10.4
+4432758,2021,KS,Kansas,Diabetes among adults >= 18,11.1,10.5,11.6
+4452244,2021,KY,Kentucky,Diabetes among adults >= 18,13.8,12.6,15.1
+4455963,2021,LA,Louisiana,Diabetes among adults >= 18,13.6,12.4,14.9
+4453963,2021,ME,Maine,Diabetes among adults >= 18,10.4,9.7,11.2
+4468876,2021,MD,Maryland,Diabetes among adults >= 18,11.1,10.4,11.7
+4472153,2021,MA,Massachusetts,Diabetes among adults >= 18,8.9,8,9.8
+4467856,2021,MI,Michigan,Diabetes among adults >= 18,10.8,10,11.6
+4474632,2021,MN,Minnesota,Diabetes among adults >= 18,9,8.5,9.5
+4475850,2021,MS,Mississippi,Diabetes among adults >= 18,15.2,13.9,16.5
+4487260,2021,MO,Missouri,Diabetes among adults >= 18,11.3,10.5,12.1
+4480299,2021,MT,Montana,Diabetes among adults >= 18,8.9,8.1,9.7
+4494656,2021,NE,Nebraska,Diabetes among adults >= 18,9.6,9,10.2
+4499294,2021,NV,Nevada,Diabetes among adults >= 18,11.5,9.9,13.2
+4495327,2021,NH,New Hampshire,Diabetes among adults >= 18,8.7,7.8,9.5
+4514102,2021,NJ,New Jersey,Diabetes among adults >= 18,10.3,9.4,11.1
+4513591,2021,NM,New Mexico,Diabetes among adults >= 18,13.2,12,14.3
+4515752,2021,NY,New York,Diabetes among adults >= 18,11.4,10.9,12
+4521594,2021,NC,North Carolina,Diabetes among adults >= 18,12.7,11.6,13.9
+4518929,2021,ND,North Dakota,Diabetes among adults >= 18,9.5,8.7,10.4
+4523961,2021,OH,Ohio,Diabetes among adults >= 18,12.6,11.8,13.3
+4534413,2021,OK,Oklahoma,Diabetes among adults >= 18,12.8,11.8,13.9
+4544987,2021,OR,Oregon,Diabetes among adults >= 18,9.6,8.6,10.6
+4543689,2021,PA,Pennsylvania,Diabetes among adults >= 18,11.1,10.1,12.1
+4543106,2021,RI,Rhode Island,Diabetes among adults >= 18,10.4,9.4,11.5
+4551448,2021,SC,South Carolina,Diabetes among adults >= 18,13.7,12.9,14.6
+4551206,2021,SD,South Dakota,Diabetes among adults >= 18,10.8,9.2,12.4
+4556245,2021,TN,Tennessee,Diabetes among adults >= 18,14,12.8,15.2
+4567645,2021,TX,Texas,Diabetes among adults >= 18,11.5,10.5,12.5
+4565245,2021,UT,Utah,Diabetes among adults >= 18,8,7.4,8.6
+4568138,2021,VT,Vermont,Diabetes among adults >= 18,8.5,7.6,9.4
+4585733,2021,VA,Virginia,Diabetes among adults >= 18,11.4,10.6,12.3
+4575392,2021,WA,Washington,Diabetes among adults >= 18,8.7,8.1,9.3
+4583998,2021,WV,West Virginia,Diabetes among adults >= 18,15.9,14.9,16.9
+4594252,2021,WI,Wisconsin,Diabetes among adults >= 18,9.1,8.1,10.1
+4601775,2021,WY,Wyoming,Diabetes among adults >= 18,8.8,7.8,9.8
+4387461,2021,AL,Alabama,Mental health not good for >= 14 days among adults >= 18,18.4,16.8,20
+4377356,2021,AK,Alaska,Mental health not good for >= 14 days among adults >= 18,14,12.5,15.4
+4375261,2021,AZ,Arizona,Mental health not good for >= 14 days among adults >= 18,15.4,14.4,16.4
+4392504,2021,AR,Arkansas,Mental health not good for >= 14 days among adults >= 18,18.4,16.8,20.1
+4389504,2021,CA,California,Mental health not good for >= 14 days among adults >= 18,14.4,13.2,15.5
+4403033,2021,CO,Colorado,Mental health not good for >= 14 days among adults >= 18,14.2,13.3,15
+4409104,2021,CT,Connecticut,Mental health not good for >= 14 days among adults >= 18,12.8,11.7,13.8
+4412938,2021,DE,Delaware,Mental health not good for >= 14 days among adults >= 18,13,11.4,14.6
+4421350,2021,GA,Georgia,Mental health not good for >= 14 days among adults >= 18,14.8,13.5,16
+4418595,2021,HI,Hawaii,Mental health not good for >= 14 days among adults >= 18,10.7,9.7,11.6
+4431530,2021,ID,Idaho,Mental health not good for >= 14 days among adults >= 18,14.6,13.4,15.8
+4438778,2021,IL,Illinois,Mental health not good for >= 14 days among adults >= 18,12.9,11.4,14.5
+4435890,2021,IN,Indiana,Mental health not good for >= 14 days among adults >= 18,16,15,16.9
+4444098,2021,IA,Iowa,Mental health not good for >= 14 days among adults >= 18,13.9,12.9,14.9
+4449233,2021,KS,Kansas,Mental health not good for >= 14 days among adults >= 18,15.2,14.4,15.9
+4448658,2021,KY,Kentucky,Mental health not good for >= 14 days among adults >= 18,18,16.5,19.4
+4447334,2021,LA,Louisiana,Mental health not good for >= 14 days among adults >= 18,17.8,16.4,19.3
+4447621,2021,ME,Maine,Mental health not good for >= 14 days among adults >= 18,15.2,14.2,16.3
+4464388,2021,MD,Maryland,Mental health not good for >= 14 days among adults >= 18,12.7,11.9,13.5
+4472005,2021,MA,Massachusetts,Mental health not good for >= 14 days among adults >= 18,13.2,12.2,14.2
+4470703,2021,MI,Michigan,Mental health not good for >= 14 days among adults >= 18,15.5,14.5,16.5
+4483116,2021,MN,Minnesota,Mental health not good for >= 14 days among adults >= 18,12.4,11.7,13
+4489623,2021,MS,Mississippi,Mental health not good for >= 14 days among adults >= 18,14.7,13.2,16.2
+4480142,2021,MO,Missouri,Mental health not good for >= 14 days among adults >= 18,16.2,15.1,17.2
+4497577,2021,MT,Montana,Mental health not good for >= 14 days among adults >= 18,14.8,13.6,16
+4502537,2021,NE,Nebraska,Mental health not good for >= 14 days among adults >= 18,13.1,12.3,13.9
+4496496,2021,NV,Nevada,Mental health not good for >= 14 days among adults >= 18,17.6,15.5,19.7
+4509499,2021,NH,New Hampshire,Mental health not good for >= 14 days among adults >= 18,14.6,13.2,15.9
+4508960,2021,NJ,New Jersey,Mental health not good for >= 14 days among adults >= 18,13.3,12.3,14.4
+4515746,2021,NM,New Mexico,Mental health not good for >= 14 days among adults >= 18,14.5,13.3,15.7
+4532220,2021,NY,New York,Mental health not good for >= 14 days among adults >= 18,13,12.4,13.6
+4520718,2021,NC,North Carolina,Mental health not good for >= 14 days among adults >= 18,13.8,12.6,15.1
+4523488,2021,ND,North Dakota,Mental health not good for >= 14 days among adults >= 18,12.6,11.3,13.9
+4522138,2021,OH,Ohio,Mental health not good for >= 14 days among adults >= 18,16.3,15.4,17.3
+4537750,2021,OK,Oklahoma,Mental health not good for >= 14 days among adults >= 18,17.4,16,18.7
+4540219,2021,OR,Oregon,Mental health not good for >= 14 days among adults >= 18,16.4,15.2,17.6
+4537031,2021,PA,Pennsylvania,Mental health not good for >= 14 days among adults >= 18,14,12.9,15.1
+4551430,2021,RI,Rhode Island,Mental health not good for >= 14 days among adults >= 18,14.3,13,15.7
+4551352,2021,SC,South Carolina,Mental health not good for >= 14 days among adults >= 18,16.7,15.5,17.8
+4559890,2021,SD,South Dakota,Mental health not good for >= 14 days among adults >= 18,11.4,9.6,13.1
+4565070,2021,TN,Tennessee,Mental health not good for >= 14 days among adults >= 18,18,16.5,19.5
+4570657,2021,TX,Texas,Mental health not good for >= 14 days among adults >= 18,14,12.8,15.1
+4564729,2021,UT,Utah,Mental health not good for >= 14 days among adults >= 18,17.1,16.1,18
+4581937,2021,VT,Vermont,Mental health not good for >= 14 days among adults >= 18,15.6,14.1,17.1
+4580373,2021,VA,Virginia,Mental health not good for >= 14 days among adults >= 18,14.7,13.6,15.7
+4575956,2021,WA,Washington,Mental health not good for >= 14 days among adults >= 18,15.4,14.6,16.3
+4598304,2021,WV,West Virginia,Mental health not good for >= 14 days among adults >= 18,19.4,18.1,20.6
+4601526,2021,WI,Wisconsin,Mental health not good for >= 14 days among adults >= 18,13.6,12.2,15
+4590433,2021,WY,Wyoming,Mental health not good for >= 14 days among adults >= 18,15.1,13.4,16.8
+4380977,2021,AL,Alabama,Stroke among adults >= 18,4.3,3.6,5
+4377468,2021,AK,Alaska,Stroke among adults >= 18,3.1,2.4,3.8
+4387203,2021,AZ,Arizona,Stroke among adults >= 18,3,2.6,3.4
+4381788,2021,AR,Arkansas,Stroke among adults >= 18,4,3.4,4.6
+4397088,2021,CA,California,Stroke among adults >= 18,2.7,2.2,3.2
+4396686,2021,CO,Colorado,Stroke among adults >= 18,2.2,1.9,2.6
+4399843,2021,CT,Connecticut,Stroke among adults >= 18,2.7,2.2,3.1
+4410430,2021,DE,Delaware,Stroke among adults >= 18,4,3.2,4.8
+4416827,2021,GA,Georgia,Stroke among adults >= 18,3.7,3.2,4.2
+4419863,2021,HI,Hawaii,Stroke among adults >= 18,3,2.4,3.6
+4426475,2021,ID,Idaho,Stroke among adults >= 18,2.9,2.4,3.4
+4429869,2021,IL,Illinois,Stroke among adults >= 18,3.6,2.5,4.6
+4433038,2021,IN,Indiana,Stroke among adults >= 18,3.5,3.1,3.8
+4439235,2021,IA,Iowa,Stroke among adults >= 18,2.5,2.1,2.8
+4438669,2021,KS,Kansas,Stroke among adults >= 18,3.1,2.8,3.4
+4455373,2021,KY,Kentucky,Stroke among adults >= 18,4.6,3.9,5.3
+4458569,2021,LA,Louisiana,Stroke among adults >= 18,4.5,3.8,5.3
+4459588,2021,ME,Maine,Stroke among adults >= 18,3.5,3,4
+4469290,2021,MD,Maryland,Stroke among adults >= 18,2.9,2.6,3.2
+4475291,2021,MA,Massachusetts,Stroke among adults >= 18,2.5,2.1,3
+4466890,2021,MI,Michigan,Stroke among adults >= 18,3.8,3.3,4.3
+4473990,2021,MN,Minnesota,Stroke among adults >= 18,2.6,2.3,2.9
+4482135,2021,MS,Mississippi,Stroke among adults >= 18,5.6,4.7,6.4
+4481215,2021,MO,Missouri,Stroke among adults >= 18,3.5,3.1,3.9
+4478517,2021,MT,Montana,Stroke among adults >= 18,2.7,2.2,3.2
+4493199,2021,NE,Nebraska,Stroke among adults >= 18,2.7,2.3,3
+4498426,2021,NV,Nevada,Stroke among adults >= 18,3.2,2.4,4
+4499578,2021,NH,New Hampshire,Stroke among adults >= 18,2.9,2.4,3.4
+4505636,2021,NJ,New Jersey,Stroke among adults >= 18,2.8,2.3,3.2
+4508832,2021,NM,New Mexico,Stroke among adults >= 18,2.7,2.2,3.2
+4507613,2021,NY,New York,Stroke among adults >= 18,2.4,2.2,2.6
+4528243,2021,NC,North Carolina,Stroke among adults >= 18,4.3,3.6,5
+4519658,2021,ND,North Dakota,Stroke among adults >= 18,2.8,2.3,3.3
+4530818,2021,OH,Ohio,Stroke among adults >= 18,4.1,3.7,4.5
+4546109,2021,OK,Oklahoma,Stroke among adults >= 18,4.2,3.5,4.8
+4536801,2021,OR,Oregon,Stroke among adults >= 18,3,2.4,3.7
+4543281,2021,PA,Pennsylvania,Stroke among adults >= 18,3.9,3.3,4.6
+4534835,2021,RI,Rhode Island,Stroke among adults >= 18,2.7,2.2,3.2
+4560711,2021,SC,South Carolina,Stroke among adults >= 18,3.1,2.7,3.6
+4548943,2021,SD,South Dakota,Stroke among adults >= 18,2.8,1.9,3.6
+4548196,2021,TN,Tennessee,Stroke among adults >= 18,4.8,4,5.6
+4562959,2021,TX,Texas,Stroke among adults >= 18,3.1,2.6,3.6
+4567973,2021,UT,Utah,Stroke among adults >= 18,2.2,1.9,2.6
+4565726,2021,VT,Vermont,Stroke among adults >= 18,2.3,1.8,2.8
+4587077,2021,VA,Virginia,Stroke among adults >= 18,3.4,3,3.9
+4585143,2021,WA,Washington,Stroke among adults >= 18,2.7,2.4,3.1
+4588639,2021,WV,West Virginia,Stroke among adults >= 18,4.6,4,5.1
+4596328,2021,WI,Wisconsin,Stroke among adults >= 18,3.1,2.4,3.8
+4600587,2021,WY,Wyoming,Stroke among adults >= 18,2.6,2,3.2

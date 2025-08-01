@@ -1,0 +1,145 @@
+/* ==========================================================================
+   Styles for tracts view
+   ========================================================================== */
+
+.tracts {
+  height: calc(100vh - 80px);
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.form--healthscore {
+
+  .form-group-label {
+    margin-block: rem(5) rem(12);
+    font-size: rem(18);
+
+    + button {
+      margin-block: rem(5) rem(12);
+    }
+  }
+
+  label {
+    font-size: rem(15);
+    &[for="title"] {
+      font-size: rem(18);
+    }
+  }
+
+  input[type="text"] {
+    width: 100%;
+  }
+
+  input[type="submit"] {
+    margin-bottom: rem(15);
+  }
+
+  .form-static-group {
+    margin-bottom: rem(20);
+  }
+
+  .form-static-value {
+    margin-block: rem(10);
+    display: flex;
+    gap: rem(10);
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    &__label {
+      font-size: rem(15);
+    }
+
+    &__data {
+      font-size: rem(16);
+    }
+  }
+
+  // Title field 
+  .form-item--title {
+    margin-bottom: rem(30);
+  }
+}
+
+.map {
+  position: relative;
+
+  div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100% !important;
+    padding: 0 !important;
+  }
+}
+
+/**
+ * Site Settings Form
+ */
+.form--site-settings {
+  input[name="address"] {
+    width: 100%;
+  }
+  input[type="submit"] {
+    margin-top: rem(20);
+  }
+}
+
+/**
+ * Affordability Inputs Form
+ */
+.affordability-input-group {
+  margin-bottom: rem(18);
+  display: flex;
+  gap: rem(10) rem(20);
+  flex-wrap: wrap;
+  align-items: center;
+
+  // Don't show delete button on first row
+  &:first-child {
+    .input-delete {
+      display: none;
+    }
+  }
+
+  // Hide labels on other rows when long enough to fit on one line
+  @include breakpoint(860px) {
+    &:not(:first-child) {
+      label {
+        @include element-invisible;
+      }
+    }
+  }
+
+  .form-item {
+    margin: 0;
+  }
+}
+
+input[name="housing_unit_percent"] {
+  padding-inline: 0;
+  width: rem(90);
+}
+
+input[name="housing_unit_count"] {
+  width: rem(90);
+}
+
+.affordability-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(40);
+
+  &__item {
+    h3 {
+      margin-block: 0 rem(10);
+      font-size: rem(15);
+      font-weight: $font-weight-bold;
+    }
+
+    p {
+      margin-block: 0;
+      font-size: rem(16);
+    }
+  }
+}

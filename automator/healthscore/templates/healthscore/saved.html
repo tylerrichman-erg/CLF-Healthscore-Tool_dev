@@ -1,0 +1,68 @@
+{% extends "./includes/base.html" %}
+{% load tz %}
+{% block title %}My Scorecards{% endblock %}
+
+{% block preconnect %}
+    <link rel="preconnect" href="https://code.jquery.com" />
+{% endblock %}
+
+{% block content %}
+    <div class="body body--wide">
+        <h1 class="page-title">My Scorecards</h1>
+        {% localtime on %}
+        {% if scorecards|length > 0 %}
+            <ul class="scorecards">
+                {% for scorecard in scorecards %}
+                    <li class="scorecard">
+                        <p class="scorecard__datetime"><span>{{scorecard.date_created|localtime|date:'F d, Y'}}</span><span>{{scorecard.date_created|localtime|date:'g:iA'}}</span></p>
+                        <h2 class="scorecard__title"><span>{{scorecard.title}}</span></h2>
+
+                        <form class="form--scorecard-title is-hidden" action="/save_title" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="healthscore_id" value="{{ scorecard.id }}" />
+                            <div class="form-item form-item--title">
+                                <label for="title-{{ forloop.counter }}">Scorecard Title</label>
+                                <input type="text" name="title" id="title-{{ forloop.counter }}" value="{{scorecard.title}}" />
+                            </div>
+                            <button type="submit" class="button--primary button--small form-submit">Submit</button>
+                            <button type="button" class="button--secondary button--small form-cancel">Cancel</button>
+                        </form>
+                        <p class="scorecard__address">{{scorecard.address}}</p>
+                        <p class="scorecard__tract"><strong>Primary Census Tract</strong> {{scorecard.primary_tract.geoid|slice:"-6:"}}</p>
+                        <p class="scorecard__tract"><strong>Other Included Census Tracts</strong>
+                        {% if scorecard.all_tracts.all|length > 1 %}
+                            {% with scorecard.all_tracts.all|dictsort:"geoid"|last as last %}
+                            {% for tract in scorecard.all_tracts.all|dictsort:"geoid" %}
+                                {% if tract.geoid|slice:"-6:" != scorecard.primary_tract.geoid|slice:"-6:" %}
+                                    {{tract.geoid|slice:"-6:"}}{% if not forloop.last %}{% if forloop.revcounter != 2 or last.geoid|slice:"-6:" != scorecard.primary_tract.geoid|slice:"-6:"%}, {% endif %}{% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            {% endwith %}
+                            </p>
+                        {% else %}
+                            None
+                        {% endif %}
+
+                        <div class="scorecard__actions">
+                            <a class="button--primary button--small button--edit" href="/tracts?id={{ scorecard.id }}">Edit</a>
+                            <a class="button--primary button--small" href="/download?id={{ scorecard.id }}">Download</a>
+                            <a class="button--delete" href="/delete?id={{ scorecard.id }}">Delete</a>
+                            {% if show_scenario %}
+                                <span class="scorecard__scenario">{{ scorecard.scenario }}</span>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You have no saved scorecards.</p>
+        {% endif %}
+        {% endlocaltime %}
+    </div>
+{% endblock %}
+
+{% block pageBottom %}
+    {% load static %}
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{% static 'healthscore/js/saved.min.js' %}"></script>
+{% endblock %}

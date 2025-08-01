@@ -1,0 +1,350 @@
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+
+/**
+ * Global user interface accent color
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color
+ */
+:root {
+  accent-color: $color-accent;
+}
+
+form {
+  label {
+    margin-bottom: rem(5);
+    font-size: rem(15);
+    font-weight: $font-weight-bold;
+  }
+}
+
+input {
+  font-size: rem(16);
+  line-height: calc(20/16);
+  transition-property: color, background-color, border-color;
+  transition-duration: .3s;
+  transition-timing-function: ease-in-out;
+
+  &[type='text']:not([class]),
+  &[type='password']:not([class]),
+  &[type='number']:not([class]) {
+    padding: rem(10);
+    background-color: $gray-light-cool;
+    border: 0;
+    border-bottom: 1px solid $gray-primary;
+
+    &:read-only {
+      border: 0;
+      background-color: transparent;
+    }
+
+    // &:required {
+    //   &:valid {
+    //     border-bottom-color: $green;
+    //   }
+    // }
+
+    &[data-required]:placeholder-shown,
+    &:invalid {
+      border-bottom-color: $red-primary;
+      background-color: rgba($red-primary, .2);
+    }
+  }
+}
+
+/* Wrapper for a form element (or group of form elements) and its label. */
+.form-item {
+  margin-bottom: 1em;
+
+  /* Highlight the form elements that caused a form submission error. */
+  input.error,
+  textarea.error,
+  select.error {
+    border: 1px solid #c00;
+  }
+
+  /* The descriptive help text (separate from the label). */
+  .description {
+    font-size: 0.8em;
+    color: $color-text-light;
+  }
+
+  &__empty-text {
+    margin: 0;
+    font-size: rem(14);
+  }
+}
+
+/**
+ * Form Labels
+ */
+
+/* The part of the label that indicates a required field. */
+.form-required {
+  &:after {
+    content: '*';
+    color: #c00;
+  }
+}
+
+label {
+  display: block;
+  font-weight: bold;
+
+  /* Labels for radios and checkboxes. */
+  &.option {
+    display: inline;
+  }
+}
+
+/**
+ * Field Groups & Fieldsets
+ */
+.fieldgroup,
+fieldset {
+  margin: 0 0 1.5em;
+  padding: 0;
+  border: 0;
+
+  legend {
+    font-weight: bold;
+  }
+
+  .description {
+    margin: .25em 0 .5em;
+    font-size: .75em;
+    color: $color-text-light;
+  }
+}
+
+/**
+ * Text Fields and Textareas
+ */
+ .form-type-textfield,
+ .form-type-textarea,
+ .form-type-password,
+ .form-type-date,
+ .form-type-email,
+ .form-type-tel,
+ .form-type-number,
+ .form-type-url,
+ .form-type-search {
+  label {
+    margin-bottom: rem(5);
+    font-weight: bold;
+  }
+  .description {
+    margin: .125em 0;
+  }
+}
+.form-text,
+.form-textarea,
+.form-date,
+.form-tel,
+.form-email,
+.form-number,
+.form-url,
+.form-search {
+  max-width: 100%;
+  padding: .5em;
+  font-size: rem(16);
+  line-height: calc(22/16);
+  color: $color-text-light;
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+
+  &:focus {
+    color: $color-text;
+    border-color: $color-accent;
+  }
+}
+
+.form-text--large {
+  display: block;
+  width: 100%;
+  margin: rem(30) auto;
+  padding: rem(28) rem(40);
+  font-size: rem(20);
+  line-height: calc(24/20);
+  border-radius: rem(8);
+}
+
+/**
+ * Radio Buttons & Checkboxes
+ */
+
+// Multiple checkboxes or radios
+.form-checkboxes,
+.form-radios {
+  .form-item {
+    margin: 0;
+    display: flex;
+    gap: rem(5);
+  }
+
+  // All checkboxes and radios when in multiple sets
+  input {
+    + label {
+      margin: 0;
+      color: $color-text-light;
+      font-weight: normal;
+    }
+  
+    &:checked {
+      + label {
+        color: $color-text;
+      }
+    }
+  }
+}
+
+// Single Checkbox or Radio 
+// .form-type-checkbox,
+// .form-type-radio {
+
+// }
+
+// Inputs
+// .form-radio,
+// .form-checkbox {
+
+// }
+
+/**
+ * Selects
+ */
+
+select {
+  appearance: none;
+  padding: rem(9.5) rem(25) rem(9.5) rem(10);
+  font-size: rem(16);
+  line-height: calc(20/16);
+  border: 1px solid $gray-primary;
+  border-radius: $border-radius;
+  color: $color-text;
+  background-color: $white;
+  background-image: image('select-bg.svg');
+  background-position: right .5em top 55%;
+  background-repeat: no-repeat;
+  background-size: 7px;
+  max-width: 100%;
+  transition-property: color, background-color, border-color;
+  transition-duration: .3s;
+  transition-timing-function: ease-in-out;
+
+  &:hover,
+  &:focus {
+    border-color: $color-accent;
+  }
+}
+
+/**
+ * Submit Buttons
+ */
+button[type='submit'],
+input[type='submit'],
+[class*='button'] {
+  &:disabled,
+  [disabled] {
+    opacity: .8;
+    cursor: progress;
+  }
+}
+
+.form-submit,
+button[type='submit']:not([class]),
+input[type='submit']:not([class]) {
+  @include button--primary;
+}
+
+/**
+ * Add/Delete Row Actions
+ */
+.form-input-action {
+  display: flex;
+  gap: rem(15);
+  align-items: center;
+  + .form-input-action {
+    margin-top: rem(20);
+  }
+}
+
+.input-add,
+.input-delete {
+  appearance: none;
+  cursor: pointer;
+  text-indent: -9999px;
+  overflow: hidden;
+  border: 0;
+  background-color: $gray-primary;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  transition: background-color .3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: $red-primary;
+  }
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.input-delete {
+  width: rem(21);
+  height: rem(21);
+  mask-image: image('icon--delete.svg');
+}
+
+.input-add {
+  width: rem(24);
+  height: rem(24);
+  mask-image: image('icon--add.svg');
+}
+
+/**
+ * Settings Modal Trigger
+ */
+.settings-trigger-container {
+  display: flex;
+  gap: rem(10);
+  justify-content: space-between;
+}
+
+.settings-trigger {
+  appearance: none;
+  display: flex;
+  gap: rem(5);
+  align-items: baseline;
+  border: 0;
+  padding: 0;
+  font-size: rem(16);
+  text-decoration: underline;
+  color: $color-text;
+  background-color: transparent;
+  transition: color .3s ease-in-out;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: $color-link;
+
+    &:after {
+      background-color: $color-link;
+    }
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: $color-text;
+    mask-image: image('icon--settings.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    transition: background-color .3s ease-in-out;
+  }
+}

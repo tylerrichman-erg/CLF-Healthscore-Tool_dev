@@ -1,0 +1,318 @@
+{% extends "./includes/base.html" %}
+{% block title %}CLF Healthscore | Select Tracts{% endblock %}
+
+{% block preconnect %}
+    <link rel="preconnect" href="https://code.jquery.com" />
+{% endblock %}
+
+{% block content %}
+    <div class="tracts">
+        <details class="settings-tray" open >
+            <summary class="settings-tray__toggle">Settings</summary>
+            <div class="settings-tray__content">
+                <form class="form--healthscore" id="healthscore-form" action="/download" method="post">
+                    {% csrf_token %}
+                    {% if healthscore_id %}
+                    <input type="hidden" id="healthscore_id" name="healthscore_id" value="{{ healthscore_id }}" />
+                    {% endif %}
+                    <input type="hidden" name="state_fips" value="{{ state_fips }}" />
+                    <input type="hidden" name="state_name" value="{{ state_name }}" />
+                    <input type="hidden" name="state_short_code" value="{{ state_short_code }}" />
+                    <input type="hidden" name="county_fips" value="{{ county_fips }}" />
+                    <input type="hidden" name="address" value="{{ address }}" />
+                    <input type="hidden" name="buffer_radius" value="{{ buffer_radius }}" />
+                    <input type="hidden" name="population_threshold" value="{{ population_threshold }}" />
+                    <input type="hidden" name="scenario" value="{{ scenario }}" />
+                    <input type="hidden" name="county_name" value="{{ county_name }}" />
+                    <input type="hidden" name="primary_tract" value="{{ primary_tract }}" />
+                    <input type="hidden" name="block_group" value="{{ block_group }}" />
+
+
+                    <div class="settings-tray__section">
+                        <div class="form-item form-item--title">
+                            <label for="title">Scorecard Title</label>
+                            <input type="text" id="title" name="title" value="{{ title|default:'Untitled'}}"
+                               oninput="document.getElementById('settings_title').value = this.value;"/>
+                        </div>
+                        <div class="settings-trigger-container">
+                            <h3 class="form-group-label">Basic Search Settings</h3>
+                            <button class="settings-trigger" type="button" data-a11y-dialog-show="search-settings">Edit</button>
+                        </div>
+                        <div class="form-static-group">
+                            <p class="form-static-value"><strong class="form-static-value__label">Development Address</strong> <span class="form-static-value__data">{{ address }}</span></p>
+                            <p class="form-static-value"><strong class="form-static-value__label">Calculation Radius</strong> <span class="form-static-value__data">{{ buffer_radius }} mi <em class="tooltip">Calculation Radius refers to the radius surrounding the selected address from within which census tract data is used in the scorecard.</em></span></p>
+                            <p class="form-static-value"><strong class="form-static-value__label">Population Threshold</strong> <span class="form-static-value__data">{{ population_threshold }} % <em class="tooltip">Population Threshold refers to the percent of the population within a given census tract that must be living within the calculation radius for that census tract's data to be included in the scorecard.</em></span></p>
+                        </div>
+                    </div>
+                    <div class="settings-tray__section">
+                        <h3 class="form-group-label">Census Tract Information</h3>
+                        <div class="form-static-group">
+                            <p class="form-static-value"><strong class="form-static-value__label">County</strong> <span class="form-static-value__data">{{ county_name }}</span></p>
+                            <p class="form-static-value"><strong class="form-static-value__label">Primary Census Tract</strong> <span class="form-static-value__data">{{ primary_tract }}</span></p>
+                            <p class="form-static-value"><strong class="form-static-value__label">Block Group</strong> <span class="form-static-value__data">{{ block_group }}</span></p>
+                        </div>
+
+                        {% if all_tracts|length > 1 %}
+                        <div class="form-item">
+                            <label for="all_tracts">Included Census Tracts</label>
+                            {% for tract in all_tracts %}
+                                {% if tract != primary_tract %}
+                                    <div class="form-input-action form-input-action--delete" >
+                                        <input id="all-tracts-{{ forloop.counter0 }}" type="text" name="included_tracts" value="{{ tract }}" readonly />
+                                        <button aria-controls="all-tracts-{{ forloop.counter0 }}" class="input-delete" type="button">Delete</button>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <div class="form-item">
+                            <label for="additional_tracts">Additional Census Tracts</label>
+                            <div class="form-input-action form-input-action--add">
+                                <input type="text" placeholder="Add More Tract Numbers" name="additional_tracts" value="" />
+                                <button class="input-add" type="button">Add</button>
+                            </div>
+                        </div>
+                        {% if scenario != 'NEF' %}
+                        <div class="form-item">
+                            <label for="school_district">Associated School District</label>
+                            {% if state_short_code in "MA,CT,RI" %}
+                                <input type="text" name="school_district" value="{{ school_district }}" />
+                            {% else %}
+                                <p class="form-item__empty-text">No data available</p>
+                            {% endif %}
+                        </div>
+                        <fieldset class="form-radios">
+                            <legend>Community Type <em class="tooltip">For the purposes of HNEF II HealthScore, Community Type is determined by whether the neighborhood surrounding the selected address is New Markets Tax Credit eligible and/or has a life expectancy lower than the state average. If so, the location is scored as a "Disadvantaged" community. If not, and the neighborhood surrounding the selected address has high-performing public schools, then the location is scored as an "Advantaged" community.</em></legend>
+                            <div class="form-item">
+                              <input type="radio" id="disadvantaged" name="community" value="Disadvantaged" {% if community == 'Disadvantaged'%} checked {% endif %}
+                                     oninput="document.getElementById('settings_community').value = this.value;"/>
+                              <label for="disadvantaged">Disadvantaged</label>
+                            </div>
+                            <div class="form-item">
+                              <input type="radio" id="advantaged" name="community" value="Advantaged" {% if community == 'Advantaged'%} checked {% endif %}
+                                     oninput="document.getElementById('settings_community').value = this.value;"/>
+                              <label for="advantaged">Advantaged</label>
+                            </div>
+                        </fieldset>
+                        {% else %}
+                            <input type="hidden" name="community" value="Disadvantaged"/>
+                        {% endif %}
+                    </div>
+                    <div class="settings-tray__section">
+                        <div class="settings-trigger-container">
+                            <h3 class="form-group-label">Affordability Inputs <em class="tooltip bottom">For the purposes of HNEF II HealthScore,  Affordability Inputs refer to data regarding the proposed development's mix of homes and starting rents and allows the HealthScore tool to provide an indication of the development's affordability relative to the surrounding neighborhood's median household income.</em></h3>
+                            <button class="settings-trigger" type="button" data-a11y-dialog-show="affordability-inputs">Edit</button>
+                        </div>
+                    </div>
+                    <div class="settings-tray__section">
+                        <input type="submit" class="button--download" value="Download Scorecard" name="download" />
+                        <input type="submit" class="button--save" value="Save Scorecard" id="save-form" name="save" />
+                    </div>
+                </form>
+            </div>
+        </details>
+        <div class="map">
+            {{ map_content|safe  }}
+        </div>
+    </div>
+    <div class="dialog-container modal" id="search-settings" aria-labelledby="search-settings-title" aria-hidden="true" data-a11y-dialog="search-settings">
+        <div class="dialog-overlay" data-a11y-dialog-hide></div>
+        <div class="dialog-content" role="document">
+            <button class="modal__close" type="button" data-a11y-dialog-hide aria-label="Close dialog">Close</button>
+            <h1 id="search-settings-title" class="modal__title">Basic Search Settings</h1>
+            <p class="inline-warning">Changing these values will remove any customizations you’ve made to census tracts.</p>
+            <hr />
+            <form class="form--site-settings" id="tract-form" action="/tracts" method="post">
+                {% csrf_token %}
+                {% if healthscore_id %}
+                <input type="hidden" id="settings_healthscore_id" name="healthscore_id" value="{{ healthscore_id }}"/>
+                {% endif %}
+                <input type="hidden" id="settings_community" name="community" />
+                <input type="hidden" id="settings_title" name="title" value="{{ title }}"/>
+
+                <div class="form-item">
+                    <label for="address">Development Address</label>
+                    <input type="text" name="address" value="{{ address }}" />
+                </div>
+                <div class="form-item">
+                    <label for="buffer_radius">Calculation Radius</label>
+                    <input type="number" name="buffer_radius" value="{{ buffer_radius }}" min="0" step="0.1" inputmode="decimal" /><span class="input-suffix"> mi</span>
+                </div>
+                <div class="form-item">
+                    <label for="population_threshold">Population Threshold</label>
+                    <input type="number" name="population_threshold" value="{{ population_threshold }}" min="0" step="1" inputmode="numeric" /><span class="input-suffix"> %</span>
+                </div>
+
+                {% if show_scenario %}
+                <div class="form-item">
+                    <label for="scenario">Version of HealthScore</label>
+                    <select name="scenario" value="{{ scenario }}">
+                        <option value="HNEF II" {% if scenario == "HNEF II"%}selected{% endif %}>HNEF II</option>
+                        <option value="NEF" {% if scenario == "NEF"%}selected{% endif %}>NEF</option>
+                        <option value="NNE HCIP" {% if scenario == "NNE HCIP"%}selected{% endif %}>NNE HCIP</option>
+                    </select>
+                </div>
+                {% else %}
+                    <input type="hidden" value="{{ scenario }}">
+                {% endif %}
+                <input class="button--primary" type="submit" value="View Updated Map"/>
+            </form>
+        </div>
+    </div>
+    <div class="dialog-container modal" id="affordability-inputs" aria-labelledby="affordability-inputs-title" aria-hidden="true" data-a11y-dialog="affordability-inputs">
+        <div class="dialog-overlay" data-a11y-dialog-hide></div>
+        <div class="dialog-content" role="document">
+            <button class="modal__close" type="button" data-a11y-dialog-hide aria-label="Close dialog">Close</button>
+            <h1 id="affordability-inputs-title" class="modal__title">Affordability Inputs</h1>
+            <hr />
+            <div class="affordability-inputs">
+                {% if housing|length > 0 %}
+                    {% for unit in housing %}
+                    <div class="affordability-input-group">
+                        <div class="form-item">
+                            <label for="housing_unit_type">Unit Type</label>
+                            <input form="healthscore-form" type="text" name="housing_unit_type" value="{{ unit.unit_type }}" />
+                        </div>
+                        <div class="form-item">
+                            <label for="housing_unit_type">Number of</label>
+                            <input form="healthscore-form" type="text" inputmode="numeric" name="housing_unit_count" value="{{ unit.unit_count }}" size="6" min="0" data-required placeholder=" " />
+                        </div>
+                        <div class="form-item">
+                            <label for="housing_unit_percent">% of Total</label>
+                            <input name="housing_unit_percent" type="text" size="4" value="100%" readonly>
+                        </div>
+                        <div class="form-item">
+                            <label for="housing_rent">Starting</label>
+                            <div class="input-with-prefix">
+                                <span class="input-prefix">$</span>
+                                <input form="healthscore-form" type="text" inputmode="numeric" name="housing_rent" value="{{ unit.starting_rent }}" size="6" min="0" data-required placeholder=" " />
+                            </div>
+                        </div>
+                        <button class="input-delete" type="button">Delete</button>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <div class="affordability-input-group">
+                    <div class="form-item">
+                        <label for="housing_unit_type">Unit Type</label>
+                        <input form="healthscore-form" type="text" name="housing_unit_type" value="" />
+                    </div>
+                    <div class="form-item">
+                        <label for="housing_unit_type">Number of</label>
+                        <input form="healthscore-form" type="text" inputmode="numeric" name="housing_unit_count" value="" size="6" min="0" data-required placeholder=" " />
+                    </div>
+                    <div class="form-item">
+                        <label for="housing_unit_percent">% of Total</label>
+                        <input name="housing_unit_percent" type="text" size="4" value="100%" readonly>
+                    </div>
+                    <div class="form-item">
+                        <label for="housing_rent">Starting</label>
+                        <div class="input-with-prefix">
+                            <span class="input-prefix">$</span>
+                            <input form="healthscore-form" type="text" inputmode="numeric" name="housing_rent" value="" size="6" min="0" data-required placeholder=" " />
+                        </div>
+                    </div>
+                    <button class="input-delete" type="button">Delete</button>
+                </div>
+                {% endif %}
+            </div>
+            <button data-row="affordability-input-group" class="button--add button--small" type="button">Add Another Unit Type</button>
+            <hr />
+            <div class="affordability-summary">
+                <div class="affordability-summary__item">
+                    <h3>Annual Income Needed&nbsp;<em class="tooltip bottom">For the purposes of HNEF II HealthScore, Annual Income Needed refers to the minimum annual household income needed to afford to rent an "average" home within the proposed development without spending greater than 30% of household income on rent.</em></h3>
+                    <p id="affordability-income-needed">$0</p>
+                </div>
+                <div class="affordability-summary__item">
+                    <h3>Total Units</h3>
+                    <p id="affordability-total-units">0</p>
+                </div>
+                <div class="affordability-summary__item">
+                    <h3>Weighted Average Rent Cost&nbsp;<em class="tooltip bottom">For the purposes of HNEF II HealthScore, Weighted Average Rent Cost refers to the average starting rent of a home within the proposed development, taking into account the number of each type of home as a percentage of the total number of proposed homes.</em></h3>
+                    <p id="affordability-weighted-rent">$0</p>
+                </div>
+            </div>
+            <hr />
+            <button class="button--back" type="button" data-a11y-dialog-hide aria-label="Close dialog">Back to Map</button>
+        </div>
+    </div>
+    <div class="dialog-container modal" id="save-success" aria-labelledby="save-success-title" aria-hidden="true">
+        <div class="dialog-overlay" data-a11y-dialog-hide></div>
+        <div class="dialog-content" role="document">
+            <button class="modal__close" type="button" data-a11y-dialog-hide aria-label="Close dialog">Close</button>
+            <h1 id="search-settings-title" class="modal__title">Saved!</h1>
+            <p>Your scorecard has been saved sucessfully.</p>
+            <p><a href="/saved" class="button--primary">View Saved Scorecards</a> <button class="button--secondary" data-a11y-dialog-hide >Close</button></p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pageBottom %}
+    {% load static %}
+    <script>document.getElementById('settings_community').value = (document.getElementById('disadvantaged').checked) ? 'Disadvantaged' : 'Advantaged';</script>
+    <script src="{% static 'healthscore/js/tooltips.min.js' %}"></script>
+    <script src="{% static 'healthscore/js/a11y-dialog.min.js' %}"></script>
+    <script src="{% static 'healthscore/js/tracts.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+
+            // Get the dialog container HTML element (with the accessor method you want)
+            const saveDialogElement = document.getElementById('save-success');
+            // Instantiate a new A11yDialog module
+            const saveDialog = new A11yDialog(saveDialogElement);
+
+            // Submit post on submit
+            $('#save-form').on('click', function(event){
+                event.preventDefault();
+                let saveButton = event.currentTarget;
+                saveButton.classList.add('saving');
+                saveButton.setAttribute('disabled','');
+
+                // Collect all inputs...
+                let payload = $(this).closest("form").serialize();
+                payload['csrfmiddlewaretoken']= "{{ csrf_token }}";
+
+                $.ajax({
+                    url : "/save", // the endpoint
+                    type : "POST", // http method
+                    data : payload,
+
+                    // handle a successful response
+                    success : function(response) {
+                        saveDialog.show();
+                        saveButton.classList.remove('saving');
+                        saveButton.removeAttribute('disabled','');
+                        let current_url = window.location.href;
+                        if (! current_url.includes("id=")) {
+                            // This is a newly saved scorecard...update the url with the id
+                            // and create a hidden input with the id in case the user saves again.
+                            let json = JSON.parse(response);
+                            $('<input>', {
+                                type: 'hidden',
+                                id: 'healthscore_id',
+                                name: 'healthscore_id',
+                                value: json['id']
+                            }).appendTo('#healthscore-form');
+
+                            $('<input>', {
+                                type: 'hidden',
+                                id: 'healthscore_id',
+                                name: 'healthscore_id',
+                                value: json['id']
+                            }).appendTo('#tract-form');
+
+                            history.pushState({}, null, window.location.href + '?id=' + json['id']);
+                        }
+                    },
+
+                    // handle a non-successful response
+                    error : function(xhr,errmsg,err) {
+                        alert("Save failed. Please check logs.");
+                    }
+                });
+            });
+        });
+
+    </script>
+{% endblock %}

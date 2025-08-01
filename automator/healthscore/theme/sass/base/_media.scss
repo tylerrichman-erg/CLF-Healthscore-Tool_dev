@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Media
+   ========================================================================== */
+
+
+/**
+ * Images and Captions
+ */
+
+ img {
+  /* Remove border when inside `a` element in IE 8/9. */
+  border: 0;
+
+  /* Suppress the space beneath the baseline */
+  vertical-align: bottom;
+
+  /* Responsive images */
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+
+/* Embedded images using WYSIWYG and Entity Embed module */
+.captioned-entity,
+.embedded-entity {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+
+  img {
+    display: block;
+  }
+}
+
+.captioned-entity {
+  .embedded-entity {
+    margin: unset; // remove margin when wrapper in caption <figure>
+  }
+}
+
+.full-width {
+  margin-left: 0;
+  margin-right: 0;
+
+  img {
+    width: 100%;
+  }
+}
+
+.half-width {
+  max-width: 50%;
+}
+
+.quarter-width {
+  max-width: 50%;
+  @include breakpoint($bp-middle-and-wide) {
+    max-width: 25%;
+  }
+}
+
+/* Photo Captions */
+figcaption {
+  margin: .5em 0;
+  font-size: 85%;
+}
+
+/**
+ * Responsive iframe video embed 
+ */
+.embed-video {
+  margin: 1.5em 0;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+  clear: both; // in case there are images above
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/**
+ * Alignment classes for block level elements (images, videos, blockquotes, etc.)
+ */
+// .align-left {
+//   float: left;
+//   margin-bottom: 0.5em;
+//   margin-right: 1.5em;
+// }
+// .align-right {
+//   float: right;
+//   margin-left: 1.5em;
+//   margin-bottom: 0.5em;
+// }
+// .align-center {
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+//   text-align: center;
+
+//   img {
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+// }

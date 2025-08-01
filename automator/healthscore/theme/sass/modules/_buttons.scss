@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Button styles
+
+   note: general button classes are in /utilities/_mixins.scss
+   
+   ========================================================================== */
+
+/**
+ * Button Classes
+ */
+.button--primary {
+  @include button--primary;
+  &.loading {
+    padding-left: rem(50);
+    background-image: image('icon--loading--white.svg');
+    background-size: rem(30);
+    background-position: rem(15) 50%;
+    background-repeat: no-repeat;
+  }
+}
+
+.button--secondary {
+  @include button--secondary;
+
+  &.loading {
+    padding-left: rem(50);
+    background-image: image('icon--loading--black.svg');
+    background-size: rem(30);
+    background-position: rem(15) 50%;
+    background-repeat: no-repeat;
+  }
+}
+
+.button--download {
+  @include button--download;
+}
+
+.button--save {
+  @include button--save;
+
+  &.saving {
+    background-image: image('icon--loading--red.svg');
+    background-size: rem(30);
+  }
+}
+
+.button--add {
+  @include button--save;
+}
+
+.button--delete {
+  position: relative;
+  width: rem(34);
+  height: rem(34);
+  border-radius: rem(34);
+  text-indent: -999px;
+  overflow: hidden;
+  background-color: $gray-light-cool;
+  transition: background-color .3s ease-in-out;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mask-image: image('icon--delete.svg');
+    mask-size: rem(16.6) auto;
+    mask-position: 50%;
+    mask-repeat: no-repeat;
+    transition: background-color .3s ease-in-out;
+    background-color: $color-text;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $red-primary;
+    &:before {
+      background-color: $white;
+    }
+  }
+}
+
+.button--back {
+  display: flex;
+  align-items: center;
+  gap: rem(10);
+  appearance: none;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  background-color: transparent;
+  color: $color-link;
+  font-size: rem(20);
+  font-weight: $font-weight-bold;
+
+  &:hover,
+  &:focus {
+    color: $color-link-hover;
+    &:before {
+      background-color: $color-link-hover;
+    }
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    width: em(6);
+    height: em(12);
+    mask-image: image('icon--arrow-left.svg');
+    mask-size: contain;
+    mask-position: 50%;
+    mask-repeat: no-repeat;
+    transition: background-color .3s ease-in-out;
+    background-color: $color-link;
+  }
+}
+
+.button--small {
+  @include button-solid--small;
+  &.loading {
+    background-size: rem(20);
+    padding-left: rem(40);
+  }
+}
+
+/**
+ * Button element styled like link
+ */
+.button-link {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: $color-link;
+  cursor: pointer;
+  
+  &:hover,
+  &:focus {
+    color: $color-link-hover;
+  }
+}

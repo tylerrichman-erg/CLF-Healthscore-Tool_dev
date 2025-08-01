@@ -1,0 +1,60 @@
+{% extends "./includes/base.html" %}
+{% block title %}CLF HealthScore Data Tool{% endblock %}
+{% block head %}
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+        {% load static %}
+        <link rel="preload" as="image" href="{% static 'healthscore/images/hero--kids-bench.webp' %}">
+    {% else %}
+        {% load static %}
+        <link rel="preload" as="image" href="{% static 'healthscore/images/hero--train.webp' %}">
+    {% endif %}
+{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% load static %}
+        <div class="hero">
+            <img class="hero__image" src="{% static 'healthscore/images/hero--kids-bench.webp' %}" alt="kids sitting on a bench in front of a housing development" width="2000" height="1333" />
+            <div class="hero__text">
+                <h1 class="hero__title">Start a New Scorecard</h1>
+                <p>Enter a street address to learn more about the location.</p>
+                <form class="form--tract" id="tract-form" action="/tracts" method="post">
+                    {% csrf_token %}
+                    <input class="form-text form-text--large" id="address" name="address" type="text" placeholder="i.e. 123 Main St. Kalamazoo, MI, 49001" required />
+                    <input type="hidden" id="buffer_radius" name="buffer_radius" value="0.5" />
+                    <input type="hidden" id="population_threshold" name="population_threshold" value="50" />
+                    <input id="tract-form-submit" class="button--secondary" type="submit" value="Next"/>
+                </form>
+            </div>
+        </div>
+        <div class="body text-align-center">
+            <h2>Or Open a Saved Scorecard</h2>
+            <p><a class="button--primary" href="/saved">My Scorecards</a></p>
+        </div>
+    {% else %}
+        {% load static %}
+        <div class="hero">
+            <img class="hero__image" src="{% static 'healthscore/images/hero--train.webp' %}" alt="a train in front of a housing development" width="1612" height="1316" />
+            <div class="hero__text">
+                <h1 class="hero__title">HealthScore</h1>
+                <p class="hero__subtitle">Metrics that matter for healthy and resilient neighborhoods</p>
+            </div>
+        </div>
+        <div class="body">
+            <h2>Background</h2>
+            <p>HealthScore is CLF's impact scorecard, originally designed for use with the <a href="https://www.clf.org/making-an-impact/healthy-neighborhoods-equity-fund/">Healthy Neighborhoods Equity Fund (HNEF)</a>. Launched in partnership with the Massachusetts Housing Investment Corporation (MHIC), HNEF invests in high-impact, transit-oriented real estate developments that have the potential to transform neighborhoods, strengthen community and environmental health, and promote regional equity. CLF uses HealthScore to understand the neighborhood context and screen potential HNEF investments to assess how well a development responds to the needs, strengths, and vision of the people who live there.</p>
+            <h2>Our Approach</h2>
+            <p>HealthScore incorporates findings from two Health Impact Assessments, published scientific research, and the lived experience of residents in communities where new development is taking place. The result is a comprehensive scorecard with more than 100 metrics designed to maximize benefits for people, communities, and the environment.</p>
+            <h2>Uses</h2>
+            <p>This web-based HealthScore web-based tool supports the overall HealthScore, which also incorporates a range of additional qualitative and quantitative metrics beyond the scope of this application. The HealthScore tool may also be used by CLF staff, independent of HNEF, to explore health, economic, transit, and demographic characteristics of a neighborhood, as well as how those characteristics compare to state benchmarks.</p>
+            <p><a class="button--primary" href="/accounts/login">Login</a></p>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block pageBottom %}
+    {% if user.is_authenticated %}
+        {% load static %}
+        <script src="{% static 'healthscore/js/home.min.js' %}"></script>
+    {% endif %}
+{% endblock %}

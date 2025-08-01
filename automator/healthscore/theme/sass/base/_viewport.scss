@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Viewport 
+   more info: http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+   more info: http://trentwalton.com/2013/01/16/windows-phone-8-viewport-fix/
+   spec: http://dev.w3.org/csswg/css-device-adapt/#atviewport-rule
+   ========================================================================== */
+
+@-webkit-viewport{width:device-width;}
+@-moz-viewport{width:device-width;}
+@-ms-viewport{width:device-width;}
+@-o-viewport{width:device-width;}
+@viewport{width:device-width;}

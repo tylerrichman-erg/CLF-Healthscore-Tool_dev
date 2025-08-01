@@ -1,0 +1,45 @@
+/* ==========================================================================
+  Messages
+  ========================================================================== */
+
+.messages {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1.5rem 1.5rem 1.5rem calc(3rem - 5px);
+  color: #fff;
+  border-width: 0 0 0 5px;
+  border-style: solid;
+  border-color: #353641;
+  border-radius: 2px;
+  background-color: #353641;
+  background-position: 1rem 50%;
+  background-size: 1rem auto;
+  background-repeat: no-repeat;
+
+  a {
+    color: inherit;
+    font-weight: bold;
+    border-bottom: 1px dotted;
+  }
+
+  &--status {
+    border-color: $color-status;
+    background-image: image('message-status.svg');
+  }
+  &--warning {
+    border-color: $color-warning;
+    background-image: image('message-warning.svg');
+  }
+  &--error {
+    border-color: $color-error;
+    background-image: image('message-error.svg');
+  }
+}
+
+
+.inline-warning {
+  padding-left: rem(30);
+  background-image: image('icon--inline-warning.svg');
+  background-position: left 50%;
+  background-repeat: no-repeat;
+}
