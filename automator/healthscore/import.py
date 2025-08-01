@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import sys, os, django
 
-sys.path.append("/Users/chris/DeepGreen/workspaces/tamarack/clf-healthscore/automator")
+#sys.path.append("/Users/trichman/Tyler/Tools/Development/CLF Health Score Tool/Github/CLF-Healthscore-Tool_dev/automator")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "automator.settings")
 django.setup()
 
