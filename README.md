@@ -4,7 +4,7 @@
 
 CLF Healthscore Tool
 ============
-Current Developer: *Tyler Richman <tyler.richman@erg.com>*
+Current Developer: *Tyler Richman <tyler.richman@erg.com>*<br>
 Original Developer: *Chris Stolte <chris@deepgreensoft.com>*
 
 
@@ -116,5 +116,15 @@ manual process that involves the following steps:
 
 If styles or JS have been updated, you may need to clear the browser cache before reloading the
 application to see the changes.
+
+***
+Local Setup Instruction
+-------------------------------
+* Create and activate a new Python environment.
+* Install the required packages onto new Python environment.
+* Run SQL file that populated the database.
+* Create new superuser.
+* Update line 82 of settings.py with your Postgres username.
+* Update line 83 of settings.py with your Postgres password.
 
 
