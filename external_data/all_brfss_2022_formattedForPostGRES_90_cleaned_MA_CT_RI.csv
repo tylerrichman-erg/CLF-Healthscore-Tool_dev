@@ -1,0 +1,22 @@
+id,metric,value,moe,state_id,dataset_id
+43,COPD among adults >= 18,5.8,0.629464286,2,14
+44,Cancer (excluding skin cancer) among adults >= 18,8.6,0.713392857,2,14
+45,Coronary heart disease among adults >= 18,4.3,0.5875,2,14
+46,Stroke among adults >= 18,2.8,0.545535714,2,14
+47,Diabetes among adults >= 18,10.7,0.839285714,2,14
+48,Current asthma among adults >= 18,12.4,0.839285714,2,14
+49,Mental health not good for >= 14 days among adults >= 18,14.5,0.965178571,2,14
+140,COPD among adults >= 18,5.8,0.545535714,1,14
+141,Cancer (excluding skin cancer) among adults >= 18,8.3,0.545535714,1,14
+142,Coronary heart disease among adults >= 18,4.6,0.461607143,1,14
+143,Stroke among adults >= 18,2.7,0.377678571,1,14
+144,Diabetes among adults >= 18,10.5,0.713392857,1,14
+145,Current asthma among adults >= 18,11.3,0.713392857,1,14
+146,Mental health not good for >= 14 days among adults >= 18,14.6,0.797321429,1,14
+287,COPD among adults >= 18,6.8,0.713392857,3,14
+288,Cancer (excluding skin cancer) among adults >= 18,8.6,0.713392857,3,14
+289,Coronary heart disease among adults >= 18,4.4,0.545535714,3,14
+290,Stroke among adults >= 18,2.6,0.461607143,3,14
+291,Diabetes among adults >= 18,11.5,0.839285714,3,14
+292,Current asthma among adults >= 18,13.3,1.049107143,3,14
+293,Mental health not good for >= 14 days among adults >= 18,15.5,1.175,3,14
