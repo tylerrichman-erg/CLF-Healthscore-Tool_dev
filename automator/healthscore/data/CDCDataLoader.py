@@ -62,8 +62,8 @@ class CDCDataLoader:
                     est_col = m + 'E'
                     moe_col = m + 'M'
                     est = float(df['data_value'])
-                    moe = (abs((est - float(df['low_confidence_limit']))) +
-                          abs((est - float(df['high_confidence_limit'])))) / 2
+                    moe = ((abs((est - float(df['low_confidence_limit']))) +
+                          abs((est - float(df['high_confidence_limit'])))) / 2) * (1.645 / 1.96)
 
                     this_df = pd.DataFrame({est_col: est, moe_col: moe}, index=[0])
 
