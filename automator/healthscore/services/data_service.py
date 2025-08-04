@@ -22,8 +22,8 @@ class DataService:
     def vintages():
         return {
             'ACS': '2021',
-            'CDC': '2021',
-            'BRFSS': '2021',
+            'CDC': '2022',
+            'BRFSS': '2022',
             'EJScreen': '2019',
             'LifeExpectancy': '2018',
             'Latch': 'Nov 23, 2018',
