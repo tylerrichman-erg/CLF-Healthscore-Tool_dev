@@ -21,7 +21,14 @@ class EJScreenDataLoader:
         self.datasources = {
             'EJ Screen': f'https://ejscreen.epa.gov/mapper/ejscreenRESTbroker.aspx?geometry=&distance=&unit=9035&areatype=tract&f=pjson'
         }
+        self.metrics = {
+            'EJ Screen': {
+                'PM 2.5 (ug/m3)': 'PM25'
+            }
+        }
 
+        """
+        #!: Old code below, kept to potentially restore later
         self.metrics = {
             'EJ Screen': {
                 'PM 2.5 (ug/m3)': 'PM25',
@@ -30,6 +37,7 @@ class EJScreenDataLoader:
                 'NATA Respiratory Hazard Index': 'RESP'
             }
         }
+        """
 
     def fetch_tract_data(self, datasource:str, state_fips_code:str, county:str, tract:str):
 
@@ -42,6 +50,28 @@ class EJScreenDataLoader:
 
     def fetch_data(self, datasource:str, endpoint:str):
 
+        tract_id = endpoint[-11:]
+
+        df = pd.read_excel('../external_data/EJScreen_2024_Tract_StatePct_CLF_HealthScore.xlsx')
+        df = df.loc[df['ID'] == int(tract_id)]
+
+        col_list = list()
+
+        for m in self.metrics[datasource].values():
+            raw_col = 'RAW_E_' + m
+            percentile_col = 'S_P_' + m
+            state_avg_col = 'S_E_' + m
+
+            col_list.append(raw_col)
+            col_list.append(percentile_col)
+            col_list.append(state_avg_col)
+    
+        df = df[col_list]
+
+        final_df = df
+
+        """
+        #!: Old code below, kept to potentially restore later
         # Now, issue each call as constructed and deliver the response
         final_df = pd.DataFrame()
 
@@ -73,4 +103,5 @@ class EJScreenDataLoader:
                 print("EJScreen missing metric: " + raw_col)
 
         final_df.reset_index(inplace=True, drop=True)
+        """
         return final_df

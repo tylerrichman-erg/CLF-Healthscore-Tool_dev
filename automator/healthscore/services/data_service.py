@@ -24,7 +24,7 @@ class DataService:
             'ACS': '2021',
             'CDC': '2022',
             'BRFSS': '2022',
-            'EJScreen': '2019',
+            'EJScreen': '2024',
             'LifeExpectancy': '2018',
             'Latch': 'Nov 23, 2018',
             'SmartLocation': 'Jan, 2021',
