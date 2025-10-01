@@ -102,6 +102,7 @@ def download_healthscore(request):
     data_service.load_acs(vintages['ACS'], state_short_code, county_fips, all_tracts)
     data_service.load_cdc(vintages['CDC'], state_short_code, county_fips, all_tracts)
     data_service.load_ejscreen(vintages['EJScreen'], state_short_code, county_fips, all_tracts)
+    data_service.load_ats(vintages['AirToxScreen'], state_short_code, county_fips, all_tracts)
 
     # Produce the spreadsheet using the appropriate data
     excel_service = ExcelService(request.user)
