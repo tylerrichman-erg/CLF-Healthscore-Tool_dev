@@ -301,24 +301,31 @@ class ExcelService:
                 burden = HouseholdBurden.objects.filter(dataset__vintage=vintages['NREL'],
                                                         geoid=geoid).first()
                 # Transportation
-                df.loc['Household Transportation Burden', (tract, 'EST')] = burden.transportation_value
-                if burden.transportation_burden == 'Low':
-                    df.loc['Household Transportation Burden', '% Points'] = 0
-                elif burden.transportation_burden == 'Medium':
-                    df.loc['Household Transportation Burden', '% Points'] = 0.5
-                else:
-                    df.loc['Household Transportation Burden', '% Points'] = 1
+                try:
+                    df.loc['Household Transportation Burden', (tract, 'EST')] = burden.transportation_value
+                    if burden.transportation_burden == 'Low':
+                        df.loc['Household Transportation Burden', '% Points'] = 0
+                    elif burden.transportation_burden == 'Medium':
+                        df.loc['Household Transportation Burden', '% Points'] = 0.5
+                    else:
+                        df.loc['Household Transportation Burden', '% Points'] = 1
+                except AttributeError:
+                    df.loc['Household Transportation Burden', (tract, 'EST')] = np.nan
+                    df.loc['Household Transportation Burden', '% Points'] = np.nan
 
                 # Energy
-                df.loc['Household Energy Burden', (tract, 'EST')] = burden.energy_burden
-
-                if tract == primary_tract:
-                    if burden.energy_burden == 'Low':
-                        df.loc['Household Energy Burden', '% Points'] = 0
-                    elif burden.energy_burden == 'Medium':
-                        df.loc['Household Energy Burden', '% Points'] = 0.5
-                    else:
-                        df.loc['Household Energy Burden', '% Points'] = 1
+                try:
+                    df.loc['Household Energy Burden', (tract, 'EST')] = burden.energy_burden
+                    if tract == primary_tract:
+                        if burden.energy_burden == 'Low':
+                            df.loc['Household Energy Burden', '% Points'] = 0
+                        elif burden.energy_burden == 'Medium':
+                            df.loc['Household Energy Burden', '% Points'] = 0.5
+                        else:
+                            df.loc['Household Energy Burden', '% Points'] = 1
+                except AttributeError:
+                    df.loc['Household Energy Burden', (tract, 'EST')] = np.nan
+                    df.loc['Household Energy Burden', '% Points'] = np.nan
 
                 df.loc['Household Transportation Burden', 'Source'] = 'NREL'
                 df.loc['Household Energy Burden', 'Source'] = 'NREL'
@@ -1575,9 +1582,7 @@ class ExcelService:
 
             try:
                 # school performance
-                print("DISTRICT: ", district)
                 district_avg = EducationMA.objects.filter(dataset__vintage=vintages['EducationMA'], district=district).aggregate(Avg('percentile'))
-                print("DISTRICT AVG: ", district_avg)
                 base_df.loc['School Performance - Overall', ('All Tracts', 'PERC')] = district_avg['percentile__avg']
 
                 # disadvantaged
