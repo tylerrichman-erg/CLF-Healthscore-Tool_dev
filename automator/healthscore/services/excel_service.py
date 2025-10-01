@@ -12,6 +12,7 @@ from django.db.models import Avg
 from healthscore.data.ACSDataLoader import ACSDataLoader
 from healthscore.data.CDCDataLoader import CDCDataLoader
 from healthscore.data.EJScreenDataLoader import EJScreenDataLoader
+from healthscore.data.AirToxScreenDataLoader import AirToxScreenDataLoader
 from healthscore.models import Dataset, Metric, State, BRFSS, EducationMA, EducationMASubgroup, EducationCT,\
     EducationCTSubgroup, EducationRI, MetricValence, LifeExpectancy, Latch, SmartLocation, NHTS, ChildMortality,\
     PersonalHealthCare, ChildHealth, ERVisits, MaternityCare, MentalHealthCare, HouseholdBurden, Homelessness
@@ -150,6 +151,8 @@ class ExcelService:
             self.add_acs_all(vintage=vintages['ACS'], state=state, county=county, tract=t, base_df=df)
             self.add_cdc_tract(vintage=vintages['CDC'], state_fips=state.fips_code, county=county, tract=t, base_df=df)
             self.add_ejscreen_tract(vintage=vintages['EJScreen'], state_fips=state.fips_code, county=county, tract=t,
+                                    base_df=df)
+            self.add_ats_tract(vintage=vintages['AirToxScreen'], state_fips=state.fips_code, county=county, tract=t,
                                     base_df=df)
             self.add_life_exp_tract(vintage=vintages['LifeExpectancy'], state_fips=state.fips_code, county=county,
                                     tract=t, base_df=df)
@@ -356,7 +359,13 @@ class ExcelService:
         # State level EJ Screen
         ejscreen = list(Metric.objects.filter(dataset__vintage=vintages['EJScreen'],
                                               dataset__data_source__name='EJ Screen', geoid=state.fips_code))
+        ats = list(Metric.objects.filter(dataset__vintage=vintages['AirToxScreen'],
+                                              dataset__data_source__name='AirToxScreen', geoid=state.fips_code))
+
         for e in ejscreen:
+            df.loc[e.name, (state.short_code, 'EST')] = e.value
+            df.loc[e.name, (state.short_code, 'MOE')] = e.moe
+        for e in ats:
             df.loc[e.name, (state.short_code, 'EST')] = e.value
             df.loc[e.name, (state.short_code, 'MOE')] = e.moe
 
@@ -400,7 +409,12 @@ class ExcelService:
 
         # Aggregate EJ Screen
         ej_loader = EJScreenDataLoader(vintages['EJScreen'], self.user)
+        ats_loader = AirToxScreenDataLoader(vintages['AirToxScreen'], self.user)
+
         for m in ej_loader.metrics['EJ Screen'].keys():
+            self.row_avg(m, df, tracts)
+            self.perc_avg(m, df, tracts)
+        for m in ats_loader.metrics['AirToxScreen'].keys():
             self.row_avg(m, df, tracts)
             self.perc_avg(m, df, tracts)
 
@@ -770,6 +784,34 @@ class ExcelService:
 
                 continue
 
+            elif df.loc[index, 'Source'].to_numpy() == 'AirToxScreen':
+                # EJ metrics use percentile to determine % points scored...
+                perc = df.loc[index, ('All Tracts', 'PERC')]
+                if community == 'Disadvantaged':
+                    if perc < 50:
+                        df.loc[index, '% Points'] = 0
+                    elif perc < 60:
+                        df.loc[index, '% Points'] = 0.5
+                    elif perc < 70:
+                        df.loc[index, '% Points'] = 2/3
+                    elif perc < 90:
+                        df.loc[index, '% Points'] = 5/6
+                    else:
+                        df.loc[index, '% Points'] = 1
+                elif community == 'Advantaged':
+                    if perc > 50:
+                        df.loc[index, '% Points'] = 0
+                    elif perc > 40:
+                        df.loc[index, '% Points'] = 0.5
+                    elif perc > 30:
+                        df.loc[index, '% Points'] = 2/3
+                    elif perc > 10:
+                        df.loc[index, '% Points'] = 5/6
+                    else:
+                        df.loc[index, '% Points'] = 1
+
+                continue
+
             elif df.loc[index, 'Source'].to_numpy() == 'County Health':
                 # Use Z Score logic but with county instead of 'All tracts'...
                 z = 1.645
@@ -1024,6 +1066,10 @@ class ExcelService:
         ej_ref = ds.data_source.reference_url
         ej_desc = ds.descriptor
 
+        ds = Dataset.objects.filter(data_source__name__exact='AirToxScreen', vintage=vintages['AirToxScreen']).first()
+        ats_ref = ds.data_source.reference_url
+        ats_desc = ds.descriptor
+
         ds = Dataset.objects.filter(data_source__name__exact='USALEEP', vintage=vintages['LifeExpectancy']).first()
         life_ref = ds.data_source.reference_url
         life_desc = ds.descriptor
@@ -1130,6 +1176,7 @@ class ExcelService:
                 'ACS Profile': [f"Vintage: {vintages['ACS']}", f"{acs_profile_desc}", f"{acs_profile_ref}"],
                 'CDC': [f"Vintage: {vintages['CDC']} ", f"{cdc_desc}", f"{cdc_ref}"],
                 'EJScreen': [f"Vintage: {vintages['EJScreen']}", f"{ej_desc}", f"{ej_ref}"],
+                'AirToxScreen': [f"Vintage: {vintages['AirToxScreen']}", f"{ats_desc}", f"{ats_ref}"],
                 'Life Expectancy': [f"Vintage: {vintages['LifeExpectancy']}", f"{life_desc}", f"{life_ref}"],
                 'Latch': [f"Vintage: {vintages['Latch']}", f"{latch_desc}", f"{latch_ref}"],
                 'Smart Location': [f"Vintage: {vintages['SmartLocation']}", f"{smart_desc}", f"{smart_ref}"],
@@ -1433,6 +1480,28 @@ class ExcelService:
                     print("Missing EJScreen data...API may be broken!")
                     continue
 
+    def add_ats_tract(self, vintage: str, state_fips: str, county: str, tract: str, base_df: DataFrame):
+
+        tract_full = state_fips + county + tract
+        data_loader = AirToxScreenDataLoader(vintage, self.user)
+        for ds in data_loader.metrics.keys():
+            for m in data_loader.metrics[ds].keys():
+                try:
+                    est = Metric.objects.values_list('value', flat=True).filter(
+                        dataset__data_source__name=ds, dataset__vintage=vintage, geoid=tract_full, name=m).get()
+                    perc = Metric.objects.values_list('value', flat=True).filter(
+                        dataset__data_source__name=ds, dataset__vintage=vintage, geoid=tract_full,
+                        name='Percentile ' + m).get()
+
+                    base_df.loc[m, (tract, 'EST')] = est
+                    base_df.loc[m, (tract, 'PERC')] = perc
+                    base_df.loc[m, 'Source'] = 'AirToxScreen'
+                except KeyError:
+                    continue
+                except ObjectDoesNotExist:
+                    print("Missing AirToxScreen data...API may be broken!")
+                    continue
+
     def add_life_exp_tract(self, vintage: str, state_fips: str, county: str, tract: str, base_df: DataFrame):
         metric = 'Life Expectancy'
         tract_full = state_fips + county + tract
@@ -1506,7 +1575,9 @@ class ExcelService:
 
             try:
                 # school performance
+                print("DISTRICT: ", district)
                 district_avg = EducationMA.objects.filter(dataset__vintage=vintages['EducationMA'], district=district).aggregate(Avg('percentile'))
+                print("DISTRICT AVG: ", district_avg)
                 base_df.loc['School Performance - Overall', ('All Tracts', 'PERC')] = district_avg['percentile__avg']
 
                 # disadvantaged
