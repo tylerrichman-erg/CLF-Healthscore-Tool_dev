@@ -357,11 +357,17 @@ class ExcelService:
         df.loc['Life Expectancy', (state.short_code, 'EST')] = le_state.value
         df.loc['Life Expectancy', (state.short_code, 'SE')] = le_state.standard_error
 
+        ## Temporary "% of Max Points Scored (Decimal Value)"
+        df.loc['Life Expectancy', '% Points'] = 0.5
+        
         # State level CDC Places data (BRFSS, NCHS)
         brfss = list(BRFSS.objects.filter(dataset__vintage=vintages['BRFSS'], state__short_code=state.short_code))
         for b in brfss:
             df.loc[b.metric, (state.short_code, 'EST')] = b.value
             df.loc[b.metric, (state.short_code, 'MOE')] = b.moe
+
+            ## Temporary "% of Max Points Scored (Decimal Value)"
+            df.loc[b.metric, '% Points'] = 0.5
 
         # State level EJ Screen
         ejscreen = list(Metric.objects.filter(dataset__vintage=vintages['EJScreen'],
@@ -537,6 +543,9 @@ class ExcelService:
              df.loc['2 vehicles', assign] * 2 + df.loc['>3 vehicles', assign] * 3) / \
             (df.loc['Occupied Housing Units', assign])
         df.loc['Average Number of Cars Per Household', 'Source'] = 'ACS'
+
+        ## Temporary "% of Max Points Scored (Decimal Value)"
+        df.loc['Average Number of Cars Per Household', '% Points'] = 0.5
 
         # Z SCORES
         i = 0
@@ -935,6 +944,11 @@ class ExcelService:
         df.loc['Average weekday vehicle miles (state rural)', (state.short_code, 'EST')] \
             = nhts_data.est_vmiles_rural
 
+        ## Temporary "% of Max Points Scored (Decimal Value)"
+        df.loc['Average weekday vehicle miles (state urban)', '% Points'] = 0.5
+        df.loc['Average weekday vehicle miles (state suburban)', '% Points'] = 0.5
+        df.loc['Average weekday vehicle miles (state rural)', '% Points'] = 0.5
+
         # Urban Group
         primary_group = df.loc['Urban Group', (primary_tract, 'EST')]
         df.loc['Urban Group', ('All Tracts', 'EST')] = primary_group
@@ -944,6 +958,9 @@ class ExcelService:
             df.loc['Urban Group', ('All Tracts', 'EST')] = 'SUB'
         elif primary_group == 3:
             df.loc['Urban Group', ('All Tracts', 'EST')] = 'RUR'
+
+        ## Temporary "% of Max Points Scored (Decimal Value)"
+        df.loc['Urban Group', '% Points'] = 0.5
 
         # Ratio
         df['Ratio'] = df['All Tracts']['EST'] / df[state.short_code]['EST']
