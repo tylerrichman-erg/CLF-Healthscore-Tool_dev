@@ -350,6 +350,10 @@ class ExcelService:
             df.loc['Homeless rate', '% Points'] = (row.iloc[0].quintile * 0.25)
             df.loc['Homeless rate', 'Source'] = 'HUD'
 
+            # Female Householder (%)
+            ## Temporary "% of Max Points Scored (Decimal Value)"
+            df.loc['Female Householder (%)', '% Points'] = 0.5
+
         else:
             self.add_schools(vintages=vintages, state_fips=state.fips_code, district=school_district,
                              base_df=df)
