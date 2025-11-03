@@ -311,7 +311,8 @@ class ExcelService:
                         df.loc['Household Transportation Burden', '% Points'] = 1
                 except AttributeError:
                     df.loc['Household Transportation Burden', (tract, 'EST')] = np.nan
-                    df.loc['Household Transportation Burden', '% Points'] = np.nan
+                    ## Temporary "% of Max Points Scored (Decimal Value)"
+                    df.loc['Household Transportation Burden', '% Points'] = 0.5
 
                 # Energy
                 try:
@@ -325,7 +326,8 @@ class ExcelService:
                             df.loc['Household Energy Burden', '% Points'] = 1
                 except AttributeError:
                     df.loc['Household Energy Burden', (tract, 'EST')] = np.nan
-                    df.loc['Household Energy Burden', '% Points'] = np.nan
+                    ## Temporary "% of Max Points Scored (Decimal Value)"
+                    df.loc['Household Energy Burden', '% Points'] = 0.5
 
                 df.loc['Household Transportation Burden', 'Source'] = 'NREL'
                 df.loc['Household Energy Burden', 'Source'] = 'NREL'
