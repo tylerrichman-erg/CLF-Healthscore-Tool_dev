@@ -429,6 +429,7 @@ class ExcelService:
         # Aggregate EJ Screen
         ej_loader = EJScreenDataLoader(vintages['EJScreen'], self.user)
         ats_loader = AirToxScreenDataLoader(vintages['AirToxScreen'], self.user)
+        cdc_loader = CDCDataLoader(vintages['CDC'], self.user)
 
         for m in ej_loader.metrics['EJ Screen'].keys():
             self.row_avg(m, df, tracts)
@@ -436,6 +437,8 @@ class ExcelService:
         for m in ats_loader.metrics['AirToxScreen'].keys():
             self.row_avg(m, df, tracts)
             self.perc_avg(m, df, tracts)
+        for m in cdc_loader.metrics['CDC Places'].keys():
+            self.row_avg(m, df, tracts)
 
         # Transit Use
         self.rollup_percent_calc('% Public Transit', 'Workers >16', df, tracts, state, col)
@@ -1797,15 +1800,23 @@ class ExcelService:
 
     def row_avg(self, metric, base_df, tracts):
         sums = 0
+        tract_count = 0
         for t in tracts:
-            sums += base_df.loc[metric, (t, 'EST')]
-        base_df.loc[metric, ('All Tracts', 'EST')] = sums/len(tracts)
+            if not np.isnan(base_df.loc[metric, (t, 'EST')]):
+                sums += base_df.loc[metric, (t, 'EST')]
+                tract_count += 1
+        if tract_count > 0:
+            base_df.loc[metric, ('All Tracts', 'EST')] = sums/tract_count
 
     def perc_avg(self, metric, base_df, tracts):
         sums = 0
+        tract_count = 0
         for t in tracts:
-            sums += base_df.loc[metric, (t, 'PERC')]
-        base_df.loc[metric, ('All Tracts', 'PERC')] = sums/len(tracts)
+            if not np.isnan(base_df.loc[metric, (t, 'PERC')]):
+                sums += base_df.loc[metric, (t, 'PERC')]
+                tract_count += 1
+        if tract_count > 0:
+            base_df.loc[metric, ('All Tracts', 'PERC')] = sums/tract_count
 
     def rollup_num_calc(self, metric, total_pop, base_df, tracts, state, col):
         temp = 'Total ' + metric
