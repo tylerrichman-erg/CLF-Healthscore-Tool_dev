@@ -879,8 +879,8 @@ class ExcelService:
             z_score = 0
 
             if index == 'Life Expectancy':
-                X1 = df.loc[index, ('All Tracts', 'EST')] / 100
-                X2 = df.loc[index, (state.short_code, 'EST')] / 100
+                X1 = df.loc[index, ('All Tracts', 'EST')]
+                X2 = df.loc[index, (state.short_code, 'EST')]
                 SE1 = df.loc[index, ('All Tracts', 'SE')]
                 SE2 = df.loc[index, (state.short_code, 'SE')]
                 if (SE1**2 + SE2**2)**(1/2) == 0:
