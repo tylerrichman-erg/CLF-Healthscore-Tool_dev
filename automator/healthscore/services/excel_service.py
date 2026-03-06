@@ -953,11 +953,6 @@ class ExcelService:
         df.loc['Average weekday vehicle miles (state rural)', (state.short_code, 'EST')] \
             = nhts_data.est_vmiles_rural
 
-        ## Temporary "% of Max Points Scored (Decimal Value)"
-        df.loc['Average weekday vehicle miles (state urban)', '% Points'] = 0.5
-        df.loc['Average weekday vehicle miles (state suburban)', '% Points'] = 0.5
-        df.loc['Average weekday vehicle miles (state rural)', '% Points'] = 0.5
-
         # Urban Group
         primary_group = df.loc['Urban Group', (primary_tract, 'EST')]
         df.loc['Urban Group', ('All Tracts', 'EST')] = primary_group
@@ -967,9 +962,6 @@ class ExcelService:
             df.loc['Urban Group', ('All Tracts', 'EST')] = 'SUB'
         elif primary_group == 3:
             df.loc['Urban Group', ('All Tracts', 'EST')] = 'RUR'
-
-        ## Temporary "% of Max Points Scored (Decimal Value)"
-        df.loc['Urban Group', '% Points'] = 0.5
 
         # Ratio
         df['Ratio'] = df['All Tracts']['EST'] / df[state.short_code]['EST']
