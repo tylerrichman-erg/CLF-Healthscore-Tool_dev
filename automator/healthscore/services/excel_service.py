@@ -553,9 +553,6 @@ class ExcelService:
             (df.loc['Occupied Housing Units', assign])
         df.loc['Average Number of Cars Per Household', 'Source'] = 'ACS'
 
-        ## Temporary "% of Max Points Scored (Decimal Value)"
-        df.loc['Average Number of Cars Per Household', '% Points'] = 0.5
-
         # Z SCORES
         i = 0
         valences = list(MetricValence.objects.filter(community__name='Advantaged'))
