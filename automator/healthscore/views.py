@@ -197,7 +197,7 @@ def save_healthscore_title(request):
 def tracts(request):
     template = loader.get_template('healthscore/tracts.html')
     tract_service = TractService(request.user)
-    show_scenario = has_access(request.user)
+    show_scenario = True #has_access(request.user)
 
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
