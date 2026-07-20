@@ -7,6 +7,7 @@ import numpy as np
 from math import ceil
 from pygris import blocks, tracts
 from pygris.data import get_census
+from healthscore.data.ACSDataLoader import ACSDataLoader
 from healthscore.services.data_service import DataService
 from healthscore.models import SchoolDistrict, LifeExpectancy, NMTC, OpportunityZone
 from django.core.exceptions import ObjectDoesNotExist
@@ -104,9 +105,11 @@ class TractService:
 
         # Use pygris to get the PL 94-171 redistricting data, which includes total population.
         # Note that vintage is hard-coded to 2020, because that's the most recent that's available.
+        api_key = ACSDataLoader(2020, self.user).api_key
+
         blocks_pop_gpd = get_census(dataset="dec/pl",
                                     variables=pop_var, year=2020,
-                                    params={"for": "block:*", "in": "state:"+state_fips + "&county:"+county_fips},
+                                    params={"for": "block:*", "in": "state:"+state_fips + "&county:"+county_fips, "key": api_key},
                                     guess_dtypes=True, return_geoid=True)
 
         # Use pygris to get the shape file for all blocks in this state and county
