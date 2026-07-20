@@ -22,31 +22,31 @@ class DataService:
     @staticmethod
     def vintages():
         return {
-            'ACS': '2021',
-            'CDC': '2022',
-            'BRFSS': '2022',
+            'ACS': '2023',
+            'CDC': '2023',
+            'BRFSS': '2023',
             'EJScreen': '2024',
             'AirToxScreen': '2020',
             'LifeExpectancy': '2018',
-            'Latch': 'Nov 23, 2018',
+            'Latch': '2017',
             'SmartLocation': 'Jan, 2021',
             'EducationMA': 'Jan 09, 2020',
             'EducationMA Subgroup': 'Oct 15, 2019',
             'EducationCT': 'unknown',
             'EducationCT Subgroup': 'unknown',
             'EducationRI': 'unknown',
-            'SchoolDistrict': '2022',
+            'SchoolDistrict': '2024',
             'NMTC': 'Sep 01, 2023',
             'NHTS': 'May 31, 2017',
             'OpportunityZone': 'July 31, 2023',
-            'ChildMortality': '2024',
-            'PersonalHealthCare': '2022',
+            'ChildMortality': '2025',
+            'PersonalHealthCare': '2020',
             'NSCH': '2022',
-            'ERVisits': '2022',
-            'MaternityCare': '2020',
-            'MentalHealthCare': '2022',
-            'NREL': '2020-2021',
-            'HUD': '2023'
+            'ERVisits': '2023',
+            'MaternityCare': '2022',
+            'MentalHealthCare': '2025',
+            'NREL': '2020',
+            'HUD': '2024'
         }
 
     @transaction.atomic
