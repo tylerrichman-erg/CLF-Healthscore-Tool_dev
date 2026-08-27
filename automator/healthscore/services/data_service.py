@@ -22,7 +22,7 @@ class DataService:
     @staticmethod
     def vintages():
         return {
-            'ACS': '2023',
+            'ACS': '2024',
             'CDC': '2023',
             'BRFSS': '2023',
             'EJScreen': '2024',
