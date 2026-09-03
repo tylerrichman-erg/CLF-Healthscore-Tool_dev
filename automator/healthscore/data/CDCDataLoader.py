@@ -53,6 +53,9 @@ class CDCDataLoader:
             # "PLACES: Local Data for Better Health, Census Tract Data 2023 release"
             results = client.get("cwsq-ngmh", year=self.year, locationid=full_code, measureid=m, limit=2000)
 
+            self.log.info("Results...")
+            self.log.info(results)
+
             try:
                 df = pd.DataFrame.from_records(results)
 
