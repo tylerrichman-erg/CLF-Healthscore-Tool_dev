@@ -42,7 +42,7 @@ class DataService:
             'ChildMortality': '2025',
             'PersonalHealthCare': '2020',
             'NSCH': '2022',
-            'ERVisits': '2023',
+            'ERVisits': '2024',
             'MaternityCare': '2022',
             'MentalHealthCare': '2025',
             'NREL': '2020',
