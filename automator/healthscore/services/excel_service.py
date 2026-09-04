@@ -204,7 +204,7 @@ class ExcelService:
                     per_capita_data.append([phc_state.state_fips, phc_state.value / income])
 
             quintile_df = pd.DataFrame(columns=['geoid', 'ratio'], data=per_capita_data)
-            quintile_df['quintile'] = pd.qcut(quintile_df['ratio'], 5, labels=False)
+            quintile_df['quintile'] = pd.qcut(quintile_df['ratio'], 5, labels=False, duplicates='drop')
 
             row = quintile_df.loc[quintile_df['geoid'] == state_fips]
             df.loc['Total healthcare cost per capita per household income', (state_short_code, 'EST')] = \
@@ -221,7 +221,7 @@ class ExcelService:
                     obesity_data.append([obesity_state.state_fips, obesity_state.obesity_value])
 
             quintile_df = pd.DataFrame(columns=['geoid', 'ratio'], data=obesity_data)
-            quintile_df['quintile'] = pd.qcut(quintile_df['ratio'], 5, labels=False)
+            quintile_df['quintile'] = pd.qcut(quintile_df['ratio'], 5, labels=False, duplicates='drop')
 
             row = quintile_df.loc[quintile_df['geoid'] == state_fips]
             df.loc['Child obesity', (state_short_code, 'EST')] = row.iloc[0].ratio
@@ -234,7 +234,7 @@ class ExcelService:
                     asthma_data.append([asthma_state.state_fips, asthma_state.asthma_value])
 
             quintile_df = pd.DataFrame(columns=['geoid', 'ratio'], data=asthma_data)
-            quintile_df['quintile'] = pd.qcut(quintile_df['ratio'], 5, labels=False)
+            quintile_df['quintile'] = pd.qcut(quintile_df['ratio'], 5, labels=False, duplicates='drop')
 
             row = quintile_df.loc[quintile_df['geoid'] == state_fips]
             df.loc['Child asthma', (state_short_code, 'EST')] = row.iloc[0].ratio
@@ -253,7 +253,7 @@ class ExcelService:
                 er_data.append([er_state.state_fips, total])
 
             quintile_df = pd.DataFrame(columns=['geoid', 'total'], data=er_data)
-            quintile_df['quintile'] = pd.qcut(quintile_df['total'], 5, labels=False)
+            quintile_df['quintile'] = pd.qcut(quintile_df['total'], 5, labels=False, duplicates='drop')
 
             row = quintile_df.loc[quintile_df['geoid'] == state_fips]
             df.loc['ER Visits', (state_short_code, 'EST')] = row.iloc[0].total
@@ -288,7 +288,7 @@ class ExcelService:
                 mha_data.append([mha_state.state_fips, mha_state.rank])
 
             quintile_df = pd.DataFrame(columns=['geoid', 'state_rank'], data=mha_data)
-            quintile_df['quintile'] = pd.qcut(quintile_df['state_rank'], 5, labels=False)
+            quintile_df['quintile'] = pd.qcut(quintile_df['state_rank'], 5, labels=False, duplicates='drop')
 
             row = quintile_df.loc[quintile_df['geoid'] == state_fips]
             df.loc['Access to Mental Health Care', (state_short_code, 'EST')] = row.iloc[0].state_rank
@@ -342,7 +342,7 @@ class ExcelService:
                 hud_data.append([hud_state.state_fips, per_capita])
 
             quintile_df = pd.DataFrame(columns=['geoid', 'rate'], data=hud_data)
-            quintile_df['quintile'] = pd.qcut(quintile_df['rate'], 5, labels=False)
+            quintile_df['quintile'] = pd.qcut(quintile_df['rate'], 5, labels=False, duplicates='drop')
 
             row = quintile_df.loc[quintile_df['geoid'] == state_fips]
             state_rank = quintile_df['rate'].rank().iloc[quintile_df.loc[quintile_df['geoid'] == state_fips].index[0]]
